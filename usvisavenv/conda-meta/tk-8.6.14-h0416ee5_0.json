@@ -8,7 +8,7 @@
     "vs2015_runtime >=14.27.29016,<15.0a0",
     "zlib >=1.2.13,<1.3.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tk-8.6.14-h0416ee5_0",
+  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\tk-8.6.14-h0416ee5_0",
   "files": [
     "Library/bin/tcl86t.dll",
     "Library/bin/tclsh.exe",
@@ -1080,14 +1080,17 @@
     "Library/lib/tkstub86.lib"
   ],
   "fn": "tk-8.6.14-h0416ee5_0.conda",
+  "legacy_bz2_md5": "a8a9fb30c6dd8e7a16d5dcd2333c3c49",
+  "legacy_bz2_size": 3844176,
   "license": "TCL",
+  "license_family": "BSD",
   "link": {
-    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tk-8.6.14-h0416ee5_0",
+    "source": "C:\\Users\\prash\\.conda\\pkgs\\tk-8.6.14-h0416ee5_0",
     "type": 1
   },
   "md5": "da75707c571825eb2ad0eb806710b16b",
   "name": "tk",
-  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tk-8.6.14-h0416ee5_0.conda",
+  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\tk-8.6.14-h0416ee5_0.conda",
   "paths_data": {
     "paths": [
       {
@@ -7321,7 +7324,7 @@
         "path_type": "hardlink",
         "prefix_placeholder": "C:\\b\\abs_17sr80_iza\\croot\\tk_1714770602079\\_h_env",
         "sha256": "495d5d2b6618e255f92eaaeae67f603f687f98f8705ad4cba67d04fed64e370d",
-        "sha256_in_prefix": "140342d392b7f064a77b7a9b94daa5fb158023f817e0211b674a1c7ba9c73067",
+        "sha256_in_prefix": "0357343cf3871dd06ba5892f7910e890b749342a4cef8db516c5db62da62d754",
         "size_in_bytes": 8163
       },
       {
@@ -8577,7 +8580,7 @@
   "sha256": "80136bf123ac4e5277b4ccbe8bd3d9a6535842ad269741bc2e019babcd71b5d6",
   "size": 3660041,
   "subdir": "win-64",
-  "timestamp": 1714770894000,
+  "timestamp": 1714770894235,
   "url": "https://repo.anaconda.com/pkgs/main/win-64/tk-8.6.14-h0416ee5_0.conda",
   "version": "8.6.14"
 }

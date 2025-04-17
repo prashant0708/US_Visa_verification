@@ -4,11 +4,11 @@
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
+    "python >=3.11,<3.12.0a0",
     "setuptools",
-    "wheel",
-    "python >=3.11,<3.12.0a0"
+    "wheel"
   ],
-  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\pip-25.0-py311haa95532_0",
+  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\pip-25.0-py311haa95532_0",
   "files": [
     "Lib/site-packages/pip-25.0.dist-info/AUTHORS.txt",
     "Lib/site-packages/pip-25.0.dist-info/INSTALLER",
@@ -868,14 +868,17 @@
     "Scripts/pip3.exe"
   ],
   "fn": "pip-25.0-py311haa95532_0.conda",
+  "legacy_bz2_md5": "b6dfc09ba17209049e317cfd4e9a140d",
+  "legacy_bz2_size": 3277696,
   "license": "MIT",
+  "license_family": "MIT",
   "link": {
-    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\pip-25.0-py311haa95532_0",
+    "source": "C:\\Users\\prash\\.conda\\pkgs\\pip-25.0-py311haa95532_0",
     "type": 1
   },
   "md5": "0032c426007440b187551ca65cd04f58",
   "name": "pip",
-  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\pip-25.0-py311haa95532_0.conda",
+  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\pip-25.0-py311haa95532_0.conda",
   "paths_data": {
     "paths": [
       {
@@ -6877,7 +6880,7 @@
   "sha256": "be411de885ca50b56715b847a9e06704c92d0b6a85791e772be9d5a23bbcdb79",
   "size": 3238776,
   "subdir": "win-64",
-  "timestamp": 1737992380000,
+  "timestamp": 1737992380415,
   "url": "https://repo.anaconda.com/pkgs/main/win-64/pip-25.0-py311haa95532_0.conda",
   "version": "25.0"
 }

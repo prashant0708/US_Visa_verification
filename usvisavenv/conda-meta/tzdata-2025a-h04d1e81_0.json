@@ -4,7 +4,7 @@
   "channel": "https://repo.anaconda.com/pkgs/main/noarch",
   "constrains": [],
   "depends": [],
-  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tzdata-2025a-h04d1e81_0",
+  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\tzdata-2025a-h04d1e81_0",
   "files": [
     "share/zoneinfo/Africa/Abidjan",
     "share/zoneinfo/Africa/Accra",
@@ -613,15 +613,18 @@
     "share/zoneinfo/zonenow.tab"
   ],
   "fn": "tzdata-2025a-h04d1e81_0.conda",
+  "legacy_bz2_md5": "200a475b8b5b4e72e8b5ceddf3d0f24a",
+  "legacy_bz2_size": 126234,
   "license": "CC-PDDC OR BSD-3-Clause",
+  "license_family": "BSD",
   "link": {
-    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tzdata-2025a-h04d1e81_0",
+    "source": "C:\\Users\\prash\\.conda\\pkgs\\tzdata-2025a-h04d1e81_0",
     "type": 1
   },
   "md5": "885caf42f821b98b3321dc4108511a3d",
   "name": "tzdata",
   "noarch": "generic",
-  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tzdata-2025a-h04d1e81_0.conda",
+  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\tzdata-2025a-h04d1e81_0.conda",
   "package_type": "noarch_generic",
   "paths_data": {
     "paths": [
@@ -4867,7 +4870,7 @@
   "sha256": "087a1fc45e39ce10930b430bbc54dbc5f6fd00c363c387e2c68a71ae67573668",
   "size": 120195,
   "subdir": "noarch",
-  "timestamp": 1737549203000,
+  "timestamp": 1737549203664,
   "url": "https://repo.anaconda.com/pkgs/main/noarch/tzdata-2025a-h04d1e81_0.conda",
   "version": "2025a"
 }
