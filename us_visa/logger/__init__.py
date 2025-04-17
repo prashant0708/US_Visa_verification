@@ -1,5 +1,6 @@
 import logging
 import os
+
 from datetime import datetime
 from from_root import from_root
 
@@ -13,6 +14,8 @@ os.makedirs(log_dir,exist_ok=True)
 logging.basicConfig(
     filename=log_path,
     filemode='w',
-    format='[%(asctime)s]^;%(levelname)s^;%(lineno)d^;%(filename)s^;%(funcName)s()^;%(message)s',
+    format='[%(asctime)s] *** %(levelname)s*****%(name)s **** %(lineno)d ***** %(filename)s **** %(funcName)s  **** %(message)s',
     level=logging.INFO
 )
+
+
