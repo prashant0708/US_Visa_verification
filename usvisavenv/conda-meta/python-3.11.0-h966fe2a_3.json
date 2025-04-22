@@ -17,7 +17,7 @@
     "zlib >=1.2.13,<1.3.0a0",
     "pip"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\python-3.11.0-h966fe2a_3",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python-3.11.0-h966fe2a_3",
   "files": [
     "DLLs/_asyncio.pyd",
     "DLLs/_bz2.pyd",
@@ -2424,17 +2424,14 @@
     "pythonw.pdb"
   ],
   "fn": "python-3.11.0-h966fe2a_3.conda",
-  "legacy_bz2_md5": "64c32ea2d9486812a1a4dfde966cc048",
-  "legacy_bz2_size": 19367347,
   "license": "PSF-2.0",
-  "license_family": "PSF",
   "link": {
-    "source": "C:\\Users\\prash\\.conda\\pkgs\\python-3.11.0-h966fe2a_3",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python-3.11.0-h966fe2a_3",
     "type": 1
   },
   "md5": "6693937518daf13ab7db51c4217d6986",
   "name": "python",
-  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\python-3.11.0-h966fe2a_3.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python-3.11.0-h966fe2a_3.conda",
   "paths_data": {
     "paths": [
       {
@@ -19274,7 +19271,7 @@
   "sha256": "9e41589ae9b381a0c58dee31254c18e1d616f57e67566da37646b174130434ab",
   "size": 18783291,
   "subdir": "win-64",
-  "timestamp": 1677694977813,
+  "timestamp": 1677694977000,
   "url": "https://repo.anaconda.com/pkgs/main/win-64/python-3.11.0-h966fe2a_3.conda",
   "version": "3.11.0"
 }

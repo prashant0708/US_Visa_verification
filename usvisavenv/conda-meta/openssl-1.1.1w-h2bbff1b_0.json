@@ -8,7 +8,7 @@
     "vc >=14.1,<15.0a0",
     "vs2015_runtime >=14.16.27012,<15.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
   "files": [
     "Library/bin/c_rehash.pl",
     "Library/bin/libcrypto-1_1-x64.dll",
@@ -138,17 +138,14 @@
     "Library/ssl/openssl.cnf.dist"
   ],
   "fn": "openssl-1.1.1w-h2bbff1b_0.conda",
-  "legacy_bz2_md5": "a67d4a763641de641ea9dfa8c4a5f567",
-  "legacy_bz2_size": 6048217,
   "license": "OpenSSL",
-  "license_family": "Apache",
   "link": {
-    "source": "C:\\Users\\prash\\.conda\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\openssl-1.1.1w-h2bbff1b_0",
     "type": 1
   },
   "md5": "e2e24f1ea50292279c7ea3fe32924095",
   "name": "openssl",
-  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\openssl-1.1.1w-h2bbff1b_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\openssl-1.1.1w-h2bbff1b_0.conda",
   "paths_data": {
     "paths": [
       {
@@ -157,7 +154,7 @@
         "path_type": "hardlink",
         "prefix_placeholder": "C:\\\\b\\\\abs_12_dc77dam\\\\croot\\\\openssl_1694464964882\\\\_h_env",
         "sha256": "cf3efc4498dd9e89badbc03fb03c4a2a6b64e1eeabebc8f1cca6307d63267ebb",
-        "sha256_in_prefix": "102977d25a4a27fa2dfce485e1f6accf0bc3b341611c998b05b6548861fb5e40",
+        "sha256_in_prefix": "35e79e032223c1f57c24b06d10adc35199ff967d29fa24eff55ed3f7e09403b2",
         "size_in_bytes": 7104
       },
       {
@@ -1054,7 +1051,7 @@
   "sha256": "6a199ee325b4017701b27f90620daa6666c74b2f3ba9b9f8c79844b3fff15472",
   "size": 5763830,
   "subdir": "win-64",
-  "timestamp": 1694466133007,
+  "timestamp": 1694466133000,
   "url": "https://repo.anaconda.com/pkgs/main/win-64/openssl-1.1.1w-h2bbff1b_0.conda",
   "version": "1.1.1w"
 }

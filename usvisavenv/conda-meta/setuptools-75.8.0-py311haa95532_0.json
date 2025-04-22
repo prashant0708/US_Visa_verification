@@ -6,7 +6,7 @@
   "depends": [
     "python >=3.11,<3.12.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\setuptools-75.8.0-py311haa95532_0",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\setuptools-75.8.0-py311haa95532_0",
   "files": [
     "Lib/site-packages/_distutils_hack/__init__.py",
     "Lib/site-packages/_distutils_hack/__pycache__/__init__.cpython-311.pyc",
@@ -862,17 +862,14 @@
     "Lib/site-packages/setuptools/windows_support.py"
   ],
   "fn": "setuptools-75.8.0-py311haa95532_0.conda",
-  "legacy_bz2_md5": "2c65061f62f8df0f81ebed0efe387602",
-  "legacy_bz2_size": 2307476,
   "license": "MIT",
-  "license_family": "MIT",
   "link": {
-    "source": "C:\\Users\\prash\\.conda\\pkgs\\setuptools-75.8.0-py311haa95532_0",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\setuptools-75.8.0-py311haa95532_0",
     "type": 1
   },
   "md5": "222dce6c0229432fb0a2535fa874bcce",
   "name": "setuptools",
-  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\setuptools-75.8.0-py311haa95532_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\setuptools-75.8.0-py311haa95532_0.conda",
   "paths_data": {
     "paths": [
       {
@@ -6846,7 +6843,7 @@
   "sha256": "b1f258c9c1c7cb730ea7755ce681fc53eb6c284d8751cf4b7dbe68448ccbfdf2",
   "size": 2323565,
   "subdir": "win-64",
-  "timestamp": 1738046308078,
+  "timestamp": 1738046308000,
   "url": "https://repo.anaconda.com/pkgs/main/win-64/setuptools-75.8.0-py311haa95532_0.conda",
   "version": "75.8.0"
 }

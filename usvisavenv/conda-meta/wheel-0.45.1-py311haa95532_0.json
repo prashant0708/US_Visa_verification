@@ -6,7 +6,7 @@
   "depends": [
     "python >=3.11,<3.12.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\.conda\\pkgs\\wheel-0.45.1-py311haa95532_0",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\wheel-0.45.1-py311haa95532_0",
   "files": [
     "Lib/site-packages/wheel-0.45.1.dist-info/LICENSE.txt",
     "Lib/site-packages/wheel-0.45.1.dist-info/METADATA",
@@ -77,17 +77,14 @@
     "Scripts/wheel.exe"
   ],
   "fn": "wheel-0.45.1-py311haa95532_0.conda",
-  "legacy_bz2_md5": "eb0b68c2d661763d490a911b52a108c0",
-  "legacy_bz2_size": 176574,
   "license": "MIT",
-  "license_family": "MIT",
   "link": {
-    "source": "C:\\Users\\prash\\.conda\\pkgs\\wheel-0.45.1-py311haa95532_0",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\wheel-0.45.1-py311haa95532_0",
     "type": 1
   },
   "md5": "cc27727e2d2e0b0ed1df7224fd9ebc7f",
   "name": "wheel",
-  "package_tarball_full_path": "C:\\Users\\prash\\.conda\\pkgs\\wheel-0.45.1-py311haa95532_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\wheel-0.45.1-py311haa95532_0.conda",
   "paths_data": {
     "paths": [
       {
@@ -566,7 +563,7 @@
   "sha256": "4bc98abf51ea66fe27cc4c32b0114aa64801aaff86ca1930d61956d6a3a09971",
   "size": 186768,
   "subdir": "win-64",
-  "timestamp": 1737990578192,
+  "timestamp": 1737990578000,
   "url": "https://repo.anaconda.com/pkgs/main/win-64/wheel-0.45.1-py311haa95532_0.conda",
   "version": "0.45.1"
 }
