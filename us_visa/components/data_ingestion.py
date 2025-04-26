@@ -2,6 +2,7 @@ from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
 from us_visa.constants import *
 from us_visa.entity.config_entity import DataIngestionConfig
+from us_visa.entity.artifact_entity import DataIngestionArtifact
 from us_visa.configuration.mongodb_config import DB_CONNECTION
 from us_visa.utils.main_utils import *
 import pandas as pd
@@ -18,6 +19,7 @@ class DataIngestion:
     def __init__ ( self,data_ingestion_config:DataIngestionConfig=DataIngestionConfig()):
         self.MongoDB = DB_CONNECTION(DATABASE_NAME,COLLECTION_NAME)
         self.data_ingestion_config = data_ingestion_config
+        self.data_ingstion_artifact = DataIngestionArtifact
     
     def load_data_into_raw_folder(self) -> DataFrame:
         try:
@@ -54,13 +56,22 @@ class DataIngestion:
         except Exception as e:
             logging.info(f"{USVISAEXCEPTION(e,sys) }")
 
-    def initiate_data_ingestion(self) :
+    def initiate_data_ingestion(self)->DataIngestionArtifact :
         try:
             DataFrame = self.load_data_into_raw_folder()
             logging.info("Got the data from the data base")
 
             self.split_the_data(DataFrame)
-            logging.info("Performed train test split on the dataset")
+            
+            data_ingestion_artifact = DataIngestionArtifact(Train_file_path=self.data_ingestion_config.training_file_path,
+                                                            Test_file_path=self.data_ingestion_config.testing_file_path)
+            
+            logging.info(f"Train and test file path; [{data_ingestion_artifact}]")
+
+            return data_ingestion_artifact
+            
+
+            
         except Exception as e:
             logging.info(f"{USVISAEXCEPTION(e,sys) }")
 

@@ -23,4 +23,10 @@ class DataIngestionConfig:
     training_file_path = os.path.join(splited_file_dir_path,TRAIN_DATA)
     testing_file_path = os.path.join(splited_file_dir_path,TEST_DATA)
 
+class DataValidationConfig:
+    data_validation_dir_path = os.path.join(training_pipeline_config.artifact_dir,DATA_VALIDATION_DIR_NAME)
+    data_validation_drift_report_dir_name = os.path.join(data_validation_dir_path,DATA_VALIDATION_DRIFT_REPORT_DIR_NAME)
+    data_validation_drift_report_file_path = os.path.join(data_validation_drift_report_dir_name,DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
+
+
     

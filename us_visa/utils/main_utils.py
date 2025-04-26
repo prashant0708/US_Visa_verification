@@ -4,6 +4,7 @@ import numpy as np
 import dill
 import yaml
 from pandas import DataFrame
+import pandas as pd
 
 from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
@@ -94,6 +95,23 @@ def drop_columns(df:DataFrame,cols:list)->DataFrame:
         return df
     except Exception as e:
         raise USVISAEXCEPTION(e,sys) from e
+    
+
+### function to read the data and return the dataframe
+
+def read_data(file_path:str) -> DataFrame:
+    try:
+        if file_path.endswith('.csv'):
+            return pd.read_csv(file_path)
+        elif file_path.endswith('.xlsx') or file_path.endswith('.xls'):
+            return pd.read_excel(file_path)
+        else:
+            logging.inf("File is not in correct formate")
+    except Exception as e:
+        USVISAEXCEPTION(sys,e)
+
+
+
     
 
 
