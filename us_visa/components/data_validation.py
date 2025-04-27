@@ -1,8 +1,8 @@
 import json
 import os
 import sys
-from evidently.model_profile import Profile
-from evidently.model_profile.sections import DataDriftProfileSection
+from evidently import Report
+from evidently.presets import DataDriftPreset
 from pandas import DataFrame
 from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
@@ -88,20 +88,29 @@ class DataValidation:
         """
         try:
             logging.info("Data Drift checking started")
-            data_drift_profile = Profile(sections=[DataDriftProfileSection()])
-            data_drift_profile.calculate(df_1,df_2)
-            report = data_drift_profile.json()
+            data_drift_profile = Report([DataDriftPreset()])
+            data_drift_report =data_drift_profile.run(df_1,df_2)
+
+            report = data_drift_report.json()
             json_report = json.loads(report)
+            metrics = json_report["metrics"]
             if self.data_validation_config.data_validation_drift_report_dir_name:
      
                 write_yaml_file(self.data_validation_config.data_validation_drift_report_file_path,content=json_report)
             else:
                 logging.info(f"Path not exists: [{self.data_validation_config.data_validation_drift_report_dir_name}]")
-            n_features = json_report["data_drift"]["data"]["metrics"]["n_features"]
-            n_drifted_feature = json_report["data_drift"]["data"]["metrics"]["n_drifted_features"]
+            #n_features = json_report["metrics"][0]["result"]["n_features"]
+            n_features=[]
+            for i in metrics:
+                col =i["metric_id"].split("column=")[-1].split(")")[0]
+                n_features.append(col)
+            n_feature=len(n_feature[1:])
+            #n_drifted_feature = json_report["metrics"][0]["result"]["n_drifted_features"]
+            n_drifted_feature=metrics[0]['value']['count']
             logging.info(f"{n_drifted_feature}/{n_features} drift detected")
 
-            drift_status = json_report["data_drift"]["data"]["metrics"]["dataset_drift"]
+            #drift_status = json_report["metrics"][0]["result"]["dataset_drift"]
+            drift_status=metrics[0]['value']['share']
             return drift_status
         except Exception as e:
             raise USVISAEXCEPTION(sys,e)
