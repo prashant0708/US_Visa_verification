@@ -14,7 +14,7 @@ os.makedirs(log_dir,exist_ok=True)
 logging.basicConfig(
     filename=log_path,
     filemode='w',
-    format='[%(asctime)s] *** %(levelname)s*****%(name)s **** %(lineno)d ***** %(filename)s **** %(funcName)s  **** %(message)s',
+    format='[%(asctime)s] *** [levelname: %(levelname)s]  **** [Line number: %(lineno)d] ***** [File name: %(filename)s] ***** [Function name : %(funcName)s]  **** [%(message)s]',
     level=logging.INFO
 )
 

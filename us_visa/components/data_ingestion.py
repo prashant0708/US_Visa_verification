@@ -17,6 +17,7 @@ class DataIngestion:
     in Artifact folder.
     """
     def __init__ ( self,data_ingestion_config:DataIngestionConfig):
+        logging.info("Data Ingestion Started")
         self.MongoDB = DB_CONNECTION(DATABASE_NAME,COLLECTION_NAME)
         self.data_ingestion_config = data_ingestion_config
         self.data_ingstion_artifact = DataIngestionArtifact
