@@ -8,7 +8,7 @@ from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
 from us_visa.utils.main_utils import read_yaml_file,write_yaml_file,read_data
 from us_visa.entity.config_entity import DataIngestionConfig,DataValidationConfig
-from us_visa.entity.artifact_entity import DataIngestionArtifact,   DataValidationArtifact
+from us_visa.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
 
 SCHEMA_FILE_PATH = os.path.join('config','schema.yaml')
 
@@ -21,6 +21,7 @@ class DataValidation:
         param : schema_file_path : Data schema file path
         """
         try:
+            logging.info("Data Validation Started")
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_config = data_validation_config
             self.schema_file_path = SCHEMA_FILE_PATH
@@ -100,11 +101,12 @@ class DataValidation:
             else:
                 logging.info(f"Path not exists: [{self.data_validation_config.data_validation_drift_report_dir_name}]")
             #n_features = json_report["metrics"][0]["result"]["n_features"]
-            n_features=[]
+            feature=[]
             for i in metrics:
                 col =i["metric_id"].split("column=")[-1].split(")")[0]
-                n_features.append(col)
-            n_feature=len(n_feature[1:])
+                feature.append(col)
+            n_features=len(feature[1:])
+
             #n_drifted_feature = json_report["metrics"][0]["result"]["n_drifted_features"]
             n_drifted_feature=metrics[0]['value']['count']
             logging.info(f"{n_drifted_feature}/{n_features} drift detected")
@@ -124,10 +126,9 @@ class DataValidation:
         """
         try:
             validation_message =""
-            logging.info("Starting the Data Validation")
-
-            train_df,test_df = read_data(self.data_ingestion_artifact.Train_file_path,
-                                         self.data_ingestion_artifact.Test_file_path)
+            train_df = read_data(self.data_ingestion_artifact.Train_file_path)
+            test_df  =read_data(self.data_ingestion_artifact.Test_file_path)
+                                         
             
             ## Training data check the number of columns
             status = self.validate_number_of_columns(df=train_df)
@@ -157,10 +158,11 @@ class DataValidation:
                 validation_message+="Some of the training or testing Columns are missing in the testing columns"
                 logging.info(f"All the numerical and categorical columns are  not exists in testing dataframe{status} ")
 
-            validation_status  = len(validation_message) ==0
+            validation_status = len(validation_message) ==0
 
             if validation_status:
-                drift_check = self.detect_data_drift(df1=train_df,df_2=test_df)
+                drift_check = self.detect_data_drift(df_1=train_df,df_2=test_df)
+
                 if drift_check:
                     logging.info(f"Data Drift detected")
                     validation_message+= "Drift Detected"
@@ -176,7 +178,8 @@ class DataValidation:
                 drift_report_file_path=self.data_validation_config.data_validation_drift_report_file_path
             )
 
-            logging.info(f"Data Validation Artifact[{data_validation_artifact}]")
+            logging.info(f"Data Validation Artifact [{data_validation_artifact}]")
+            logging.info("Data Validation Pipeline Completed")
 
             return data_validation_artifact
         except Exception as e:

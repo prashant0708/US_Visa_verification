@@ -16,7 +16,7 @@ class DataIngestion:
     This class will read the data from mongodb and save data 
     in Artifact folder.
     """
-    def __init__ ( self,data_ingestion_config:DataIngestionConfig=DataIngestionConfig()):
+    def __init__ ( self,data_ingestion_config:DataIngestionConfig):
         self.MongoDB = DB_CONNECTION(DATABASE_NAME,COLLECTION_NAME)
         self.data_ingestion_config = data_ingestion_config
         self.data_ingstion_artifact = DataIngestionArtifact
@@ -29,11 +29,11 @@ class DataIngestion:
             df = drop_columns(df,cols=['_id'])
             logging.info(f"Data loaded in the DataFrame")
             os.makedirs(self.data_ingestion_config.raw_file_dir_path,exist_ok=True)
-            logging.info(f"RawDir folder created {self.data_ingestion_config.raw_file_dir_path}")
+            logging.info(f"RawDir folder created [{self.data_ingestion_config.raw_file_dir_path}]")
             
             df.to_csv(self.data_ingestion_config.raw_data_file_path,index=False)
 
-            logging.info(f"Data frame saved in raw folder at {self.data_ingestion_config.raw_data_file_path} ")
+            logging.info(f"Data  saved in raw folder at [{self.data_ingestion_config.raw_data_file_path}] ")
             
             return df
         except Exception as e:
@@ -46,27 +46,26 @@ class DataIngestion:
 
             os.makedirs(self.data_ingestion_config.splited_file_dir_path,exist_ok=True)
 
-            logging.info(f"Splited folder created at location  {self.data_ingestion_config.splited_file_dir_path}")
+            logging.info(f"Splited folder created at location  [{self.data_ingestion_config.splited_file_dir_path}]")
 
             train_set.to_csv(self.data_ingestion_config.training_file_path,index=False)
             test_set.to_csv(self.data_ingestion_config.testing_file_path,index=False)
-            logging.info(f"""Training anf testing data save at location  
-                         {self.data_ingestion_config.training_file_path,
-                        self.data_ingestion_config.testing_file_path }""")
+            logging.info(f"""Training and testing data save at location  
+                         [{self.data_ingestion_config.training_file_path,'*****',
+                        self.data_ingestion_config.testing_file_path }]""")
         except Exception as e:
             logging.info(f"{USVISAEXCEPTION(e,sys) }")
 
     def initiate_data_ingestion(self)->DataIngestionArtifact :
         try:
             DataFrame = self.load_data_into_raw_folder()
-            logging.info("Got the data from the data base")
+            
 
             self.split_the_data(DataFrame)
             
-            data_ingestion_artifact = DataIngestionArtifact(Train_file_path=self.data_ingestion_config.training_file_path,
-                                                            Test_file_path=self.data_ingestion_config.testing_file_path)
+            data_ingestion_artifact = self.data_ingstion_artifact(Test_file_path=self.data_ingestion_config.training_file_path,Train_file_path=self.data_ingestion_config.training_file_path)
             
-            logging.info(f"Train and test file path; [{data_ingestion_artifact}]")
+            logging.info("Data Ingestion Pipeline completed")
 
             return data_ingestion_artifact
             

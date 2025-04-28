@@ -8,29 +8,27 @@ from us_visa.entity.artifact_entity import DataIngestionArtifact,DataValidationA
 
 class TrainPipeline:
     def __init__(self):
-        self.data_ingestion = DataIngestion()
-        self.data_validation = DataValidation(data_ingestion_artifact=DataValidationArtifact,
-                                              data_validation_config=DataValidationConfig)
-
+        self.data_ingestion_config = DataIngestionConfig()
+        self.data_validation_config = DataValidationConfig()
     def start_data_ingestion(self):
         try:
-            logging.info(f"Starting the data ingestion")
-            self.data_ingestion.initiate_data_ingestion()
-
+            data_ingestion = DataIngestion(data_ingestion_config=self.data_ingestion_config)
+            data_ingstion_artifact=data_ingestion.initiate_data_ingestion()
+            return data_ingstion_artifact
         except Exception as e:
             raise USVISAEXCEPTION(e, sys) from e
         
     def start_data_validation(self):
-        self.data_validation.initiate_data_validation()
-        
-        
-        self
-
-        
-
+        try:
+            data_validation = DataValidation(data_ingestion_artifact=self.start_data_ingestion(),
+                                             data_validation_config=self.data_validation_config)
+            
+            data_validation_artifact = data_validation.initiate_data_validation()
+            return data_validation_artifact
+        except Exception as e:
+            raise USVISAEXCEPTION(e, sys) from e
     def run_pipeline(self):
         try:
-            data_ingestion_artifact= self.start_data_ingestion()
             data_validation_artifact = self.start_data_validation()
         except Exception as e:
             raise USVISAEXCEPTION(e, sys) from e

@@ -25,7 +25,7 @@ class DataIngestionConfig:
 
 class DataValidationConfig:
     data_validation_dir_path = os.path.join(training_pipeline_config.artifact_dir,DATA_VALIDATION_DIR_NAME)
-    data_validation_drift_report_dir_name = os.path.join(data_validation_dir_path,DATA_VALIDATION_DRIFT_REPORT_DIR_NAME)
+    data_validation_drift_report_dir_name = os.path.join(data_validation_dir_path,DATA_VALIDATION_DRIFT_REPORT_DIR_NAME,CURRENT_TIME_STEMP)
     data_validation_drift_report_file_path = os.path.join(data_validation_drift_report_dir_name,DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
 
 
