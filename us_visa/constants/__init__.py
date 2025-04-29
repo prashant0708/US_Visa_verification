@@ -42,6 +42,8 @@ Data Transformation related constant start with Data Transformation
 DATA_TRANSFORMATION_DIR_NAME:str = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR :str = "transformed"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR:str = "transformed_object" 
+DATA_TRANSFORMATION_TRANSFORMED_TRAIN_FILE_NAME:str = "Train.npy"
+DATA_TRANSFORMATION_TRANSFORMED_TEST_FILE_NAME:str = "TEST.npy"
 
 
 
