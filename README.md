@@ -40,3 +40,10 @@ taskkill /f /im pythonw.exe
 taskkill /f /im Code.exe
 ```
 
+
+
+# Flow chart making website
+```
+flow chart: https://whimsical.com/guides-LCagbXm9kSNTC2h1vcznWS
+```
+
