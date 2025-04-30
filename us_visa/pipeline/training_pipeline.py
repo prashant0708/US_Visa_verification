@@ -37,6 +37,7 @@ class TrainPipeline:
                                                      data_validation_artifact=self.start_data_validation())
             
             data_transformation_artifact = data_transformation.initiate_data_transformer()
+            return data_transformation_artifact
 
         
         except Exception as e:
