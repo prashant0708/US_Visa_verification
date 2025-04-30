@@ -11,7 +11,8 @@ from us_visa.constants import *
 from us_visa.utils.main_utils import *
 from us_visa.entity.config_entity import DataTransformationConfig
 from us_visa.entity.artifact_entity import (DataIngestionArtifact,
-                                            DataValidationArtifact)
+                                            DataValidationArtifact,
+                                            DataTransformationArtifact)
 from us_visa.entity.estimator import TargetValueMapping
 
 
@@ -82,7 +83,7 @@ class DataTransformation:
             except Exception as e:
                 raise USVISAEXCEPTION(sys,e)
             
-        def initiate_data_transformer(self):
+        def initiate_data_transformer(self)-> DataTransformationArtifact:
             """ 
             Method :initiate_data_transformer
             Description : This Process will apply Data Transformation object on train and test data
@@ -159,6 +160,15 @@ class DataTransformation:
                     save_object(self.data_transformation_config.transformed_object_file_path,preprocessing)
 
                     logging.info(f"preprocessing object  saved at [{self.data_transformation_config.transformed_object_file_path}]")
+
+                    data_transformation_artifact  = DataTransformationArtifact(transformed_train_file_path=self.data_transformation_config.transformed_train_file_path,
+                                                                           transformed_test_file_path=self.data_transformation_config.transformed_test_file_path,
+                                                                           transformed_object_file_path=self.data_transformation_config.transformed_object_file_path
+                                                                           
+                                                                           )
+                    return data_transformation_artifact
+                else:
+                    raise Exception(self.data_validation_artifact.validation_status)
 
             except Exception as e:
                 raise USVISAEXCEPTION(sys,e)
