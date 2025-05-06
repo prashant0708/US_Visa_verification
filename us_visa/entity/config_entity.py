@@ -37,5 +37,11 @@ class DataTransformationConfig:
     transformed_test_file_path : str = os.path.join(data_transformation_transformed_data_dir,DATA_TRANSFORMATION_TRANSFORMED_TEST_FILE_NAME)
     transformed_object_file_path:str = os.path.join(data_transformation_transformed_object_dir,PREPROCESSING_OBJECT_FILE_NAME)
 
+class ModelTrainerConfig:
+    model_trainer_dir_path = os.path.join(training_pipeline_config.artifact_dir,MODEL_TRAINER_DIR_NAME)
+    model_trainer_trained_dir_path = os.path.join(model_trainer_dir_path,MODEL_TRAINER_TRAINED_MODEL_DIR_NAME)
+    model_trainer_trained_model_path = os.path.join(model_trainer_dir_path,MODEL_TRAINER_TRAINER_MODEL_NAME)
+    
+
 
     

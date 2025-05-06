@@ -47,6 +47,18 @@ DATA_TRANSFORMATION_TRANSFORMED_TEST_FILE_NAME:str = "TEST.npy"
 
 
 
+"""  
+Model training related constant start with Model Training
+"""
+MODEL_TRAINER_DIR_NAME:str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR_NAME :str = "trained_Model"
+MODEL_TRAINER_TRAINER_MODEL_NAME:str = "model.pkl" 
+MODEL_TRAINER_EXPECTED_ACCURACY:float = 0.6
+MODEL_TRAINER_MODEL_CONFIG_PATH:str = os.path.join('config','model.yaml')
+
+
+
+
 
 
 
