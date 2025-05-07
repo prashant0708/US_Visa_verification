@@ -52,6 +52,7 @@ def update_property_class(class_inst:object,property_data:dict):
 class ModelFactory:
     def __init__(self,model_config_path:str):
         self.model_config_path = read_yaml_file(model_config_path)
+        print(self.model_config_path)
         self.grid_config_path = read_yaml_file(model_config_path)
 
     def model_intilization_list(self):
@@ -101,6 +102,7 @@ class ModelFactory:
                                                         best_model=grid_search_cv.best_estimator_,
                                                         best_parameters=grid_search_cv.best_params_,
                                                         best_score=grid_search_cv.best_score_)
+            logging.info(f"Best Model diary[{grid_searches_best_model}]")
             return grid_searches_best_model
         except Exception as e:
             raise(sys,e)
@@ -116,14 +118,15 @@ class ModelFactory:
             return grid_search_artifact
         except Exception as e:
             raise(sys,e)
-    def best_score(self,X,Y,best_score=0.9):
+    def best_score(self,X,Y,best_score:float=None):
         try:
+            logging.info("Model Factory intilized")
             result= self.initiate_grid_search_cv(inputs=X,output=Y)
+            logging.info(f"Model Factory result : {result}")
             if result.best_score>=best_score:
-                print(result)
                 return result
             else:
-                print("No Model found to meet the best score")
+                logging.info("No Model meets the best accuracy")
         except Exception as e:
            raise(sys,e)
 

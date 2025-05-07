@@ -9,9 +9,9 @@ from us_visa.pipeline.training_pipeline import TrainPipeline
 from us_visa.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
 
 
-# OBJ = TrainPipeline()
+OBJ = TrainPipeline()
 
-# OBJ.run_pipeline()
+OBJ.run_pipeline()
 
 from ModelFactory import ModelFactory
 from us_visa.utils.main_utils import *
