@@ -18,6 +18,16 @@ CURRENT_YEAR = date.today().year
 PREPROCESSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 SCHEMA_FILE_PATH = os.path.join("config","schema.yaml")
 
+
+"""     
+AWS Configuration constant file
+
+"""
+AWS_ACCESS_KEY_ID_ENV_KEY = "Access_key",
+AWS_SECRATE_ACCESS_KEY_ENV_KEY = "Secret_access_key",
+REGION = "ap-south-1"
+CHECK_REGION= "us-est-1"
+BUCKET_NAME= 'us-visa-artifact'
 """ 
 Data Ingestion related constant start with Data_Ingestion VAR NAME 
 """

@@ -1,14 +1,50 @@
 from us_visa.constants import *
 from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
+from us_visa.configuration.aws_config import S3Client
+import posixpath
 
 
+
+class S3Bucket:
+    """ 
+    This class will check if bucket is not exist than will create it  
+    
+    """
+    def __init__(self,Bucket_name:str):
+        self.s3client_class = S3Client()
+        self.Bucket_name=Bucket_name
+    def create_bucket(self):
+        Existing_bucket = [bucket["Name"] for  bucket in self.s3client_class.s3_client.list_buckets()["Buckets"]]
+        if self.Bucket_name not in Existing_bucket:
+            if REGION  == CHECK_REGION:
+                self.s3client_class.s3_client.create_bucket(Bucket = self.Bucket_name)
+                return self.Bucket_name
+                logging.info("Bucket at s3 created {self.Bucket_name}")
+            else:
+                localtion={'LocationConstraint':REGION}
+                self.s3client_class.s3_client.create_bucket(Bucket = self.Bucket_name,
+                                                CreateBucketConfiguration=localtion
+                                                )
+                return self.Bucket_name
+                logging.info("Bucket at s3 created {self.Bucket_name} at location {localtion}")
+            
+        else:
+            logging.info("Bucket exists {self.Bucket_name} at location {localtion}")
+            return self.Bucket_name
+
+artifact_dir = posixpath.join(ARTIFACT_DIR_NAME,PIPELINE_NAME,CURRENT_TIME_STEMP)+"/"
+data_ingestion = posixpath.join(artifact_dir,DATA_INGESTION_DIR_NAME)+"/"
+
+#s3cilent.s3_client.put_object(Bucket=Bucket_name,Key=data_ingestion)
 
 class TrainingPipeLineConfig:
-    root_dir = ROOT_DIR
-    pipeline_name = PIPELINE_NAME
+    root_dir = ROOT_DIR ##this is for local
+    pipeline_name = PIPELINE_NAME 
     Current_time_stemp = CURRENT_TIME_STEMP
-    artifact_dir = os.path.join(root_dir,ARTIFACT_DIR_NAME,pipeline_name,Current_time_stemp)
+    #artifact_dir = os.path.join(ARTIFACT_DIR_NAME,pipeline_name,Current_time_stemp)
+    artifact_dir = posixpath.join(ARTIFACT_DIR_NAME,PIPELINE_NAME,CURRENT_TIME_STEMP)+"/"
+
     
     
 
@@ -17,12 +53,12 @@ training_pipeline_config : TrainingPipeLineConfig=TrainingPipeLineConfig()
 
 
 class DataIngestionConfig:
-    data_ingestion_dir_path = os.path.join(training_pipeline_config.artifact_dir,DATA_INGESTION_DIR_NAME)
-    raw_file_dir_path = os.path.join(data_ingestion_dir_path,RAW_FILE_DIR)
-    raw_data_file_path = os.path.join(raw_file_dir_path,RAW_DATA)
-    splited_file_dir_path = os.path.join(data_ingestion_dir_path,SPLITED_FILE_DIR)
-    training_file_path = os.path.join(splited_file_dir_path,TRAIN_DATA)
-    testing_file_path = os.path.join(splited_file_dir_path,TEST_DATA)
+    data_ingestion_dir_path = posixpath.join(training_pipeline_config.artifact_dir,DATA_INGESTION_DIR_NAME)+"/"
+    raw_file_dir_path = posixpath.join(data_ingestion_dir_path,RAW_FILE_DIR)+"/"
+    raw_data_file_path = posixpath.join(raw_file_dir_path,RAW_DATA)
+    splited_file_dir_path = posixpath.join(data_ingestion_dir_path,SPLITED_FILE_DIR)+"/"
+    training_file_path = posixpath.join(splited_file_dir_path,TRAIN_DATA)
+    testing_file_path = posixpath.join(splited_file_dir_path,TEST_DATA)
 
 class DataValidationConfig:
     data_validation_dir_path = os.path.join(training_pipeline_config.artifact_dir,DATA_VALIDATION_DIR_NAME)
