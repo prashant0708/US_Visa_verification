@@ -85,11 +85,17 @@ def save_object_s3(obj:object)->io:
         return buffer
     except Exception as e:
         raise USVISAEXCEPTION(e,sys)
+    
+def load_object_s3(s3,key,Bucket)->object:
+    try:
+        response = s3.s3_client.get_object(Bucket=Bucket , Key=key)
+        body = response['Body'].read()
+        obj = dill.load(io.BytesIO(body))
+        return obj
+    except Exception as e:
+        raise USVISAEXCEPTION(e,sys)
 
-    
-    
 
-    
 def save_numpy_array_data(file_path:str , array : np.array)->None:
     """ 
     save numpy array data to file
@@ -129,6 +135,14 @@ def load_numpy_array_data (file_path:str)-> np.array:
         logging.info(f"array data read by np from location {file_path}")
     except Exception as e:
         raise USVISAEXCEPTION(e,sys) from e
+    
+def load_numpy_array_data_s3(s3,key,Bucket)->np.array:
+    try:
+        response = s3.s3_client.get_object(Bucket = Bucket,Key=key)
+        array = np.load(io.BytesIO(response['Body'].read()))
+        return array
+    except Exception as e:
+        raise USVISAEXCEPTION(sys,e)
     
 ## function to drop the columns
 
