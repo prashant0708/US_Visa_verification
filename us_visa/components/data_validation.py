@@ -1,14 +1,19 @@
 import json
 import os
+import io
 import sys
+import yaml
 from evidently import Report
 from evidently.presets import DataDriftPreset
 from pandas import DataFrame
 from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
-from us_visa.utils.main_utils import read_yaml_file,write_yaml_file,read_data
+from us_visa.utils.main_utils import *
 from us_visa.entity.config_entity import DataIngestionConfig,DataValidationConfig
 from us_visa.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
+from us_visa.configuration.aws_config import S3Client
+from us_visa.constants import *
+
 
 SCHEMA_FILE_PATH = os.path.join('config','schema.yaml')
 
@@ -26,6 +31,7 @@ class DataValidation:
             self.data_validation_config = data_validation_config
             self.schema_file_path = SCHEMA_FILE_PATH
             self.schema_config = read_yaml_file(file_path=self.schema_file_path)
+            self.s3client = S3Client()
         except Exception as e:
             raise USVISAEXCEPTION(sys,e)
     def validate_number_of_columns(self,df:DataFrame)->bool:
@@ -91,13 +97,19 @@ class DataValidation:
             logging.info("Data Drift checking started")
             data_drift_profile = Report([DataDriftPreset()])
             data_drift_report =data_drift_profile.run(df_1,df_2)
-
             report = data_drift_report.json()
             json_report = json.loads(report)
             metrics = json_report["metrics"]
             if self.data_validation_config.data_validation_drift_report_dir_name:
-     
-                write_yaml_file(self.data_validation_config.data_validation_drift_report_file_path,content=json_report)
+                yaml_buffer = io.StringIO()
+                #yaml.dump(json_report,yaml_buffer)
+                write_yaml_file_s3(json_report,yaml_buffer)
+                load_data_to_s3(Bucket=BUCKET_NAME,path=self.data_validation_config.data_validation_drift_report_file_path,
+                                S3Client=S3Client,
+                                Body=yaml_buffer.getvalue()
+                                )
+                logging.info("Data Validation yaml file store in S3 Bucket")
+                #write_yaml_file(self.data_validation_config.data_validation_drift_report_file_path,content=json_report)
             else:
                 logging.info(f"Path not exists: [{self.data_validation_config.data_validation_drift_report_dir_name}]")
             #n_features = json_report["metrics"][0]["result"]["n_features"]
@@ -126,8 +138,18 @@ class DataValidation:
         """
         try:
             validation_message =""
-            train_df = read_data(self.data_ingestion_artifact.Train_file_path)
-            test_df  =read_data(self.data_ingestion_artifact.Test_file_path)
+
+            load_train_csv = load_data_from_s3(Bucket=BUCKET_NAME,Path=self.data_ingestion_artifact.Train_file_path,S3Client=S3Client)
+            logging.info("Train CSV Buffer from IO created")
+
+            train_df = read_data(io.StringIO(load_train_csv))
+            logging.info("Training data read from s3")
+
+            load_test_csv = load_data_from_s3(Bucket=BUCKET_NAME,Path=self.data_ingestion_artifact.Test_file_path,
+                                              S3Client=S3Client)
+            
+            logging.info("Test CSV Data from IO created")
+            test_df = read_data(io.StringIO(load_test_csv))
                                          
             
             ## Training data check the number of columns

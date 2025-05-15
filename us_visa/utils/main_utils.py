@@ -8,6 +8,7 @@ import pandas as pd
 
 from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
+import io
 
 ### READ_YAMLFILE FUNCTION 
 
@@ -35,6 +36,14 @@ def write_yaml_file(file_path:str,content:object,replace:bool=False)->None:
     except Exception as e:
         raise USVISAEXCEPTION(e,sys) from e
     
+def write_yaml_file_s3(content:object,memory_path)->None:
+    try:
+        if memory_path:
+            yaml.dump(content,memory_path)
+    except Exception as e:
+        raise USVISAEXCEPTION(e,sys) from e
+
+    
 ## function to load the object
 
 def load_object(file_path:str) ->object:
@@ -60,6 +69,27 @@ def save_object(file_path:str , obj:object)->None:
     except Exception as e:
         raise USVISAEXCEPTION(e,sys) from e
     
+
+## save object to the S3
+
+def save_object_s3(obj:object)->io:
+    """ 
+    save object to s3
+    
+    array: np.array data to save
+    """
+    try:
+        buffer = io.BytesIO()
+        dill.dump(obj,buffer)
+        buffer.seek(0)
+        return buffer
+    except Exception as e:
+        raise USVISAEXCEPTION(e,sys)
+
+    
+    
+
+    
 def save_numpy_array_data(file_path:str , array : np.array)->None:
     """ 
     save numpy array data to file
@@ -73,6 +103,20 @@ def save_numpy_array_data(file_path:str , array : np.array)->None:
         with open(file_path,"wb") as file_obj:
             np.save(file_obj,array)
         
+    except Exception as e:
+        raise USVISAEXCEPTION(e,sys) from e
+    
+def save_numpy_array_data_s3(array : np.array)->io:
+    """ 
+    save numpy array data to s3
+    
+    array: np.array data to save
+    """
+    try:
+        buffer = io.BytesIO()
+        np.save(buffer,array)
+        buffer.seek(0)
+        return buffer.getvalue()
     except Exception as e:
         raise USVISAEXCEPTION(e,sys) from e
     
@@ -101,14 +145,40 @@ def drop_columns(df:DataFrame,cols:list)->DataFrame:
 
 def read_data(file_path:str) -> DataFrame:
     try:
-        if file_path.endswith('.csv'):
-            return pd.read_csv(file_path)
-        elif file_path.endswith('.xlsx') or file_path.endswith('.xls'):
-            return pd.read_excel(file_path)
-        else:
-            logging.inf("File is not in correct formate")
+        # if file_path.endswith('.csv'):
+        #     return pd.read_csv(file_path)
+        # elif file_path.endswith('.xlsx') or file_path.endswith('.xls'):
+        #     return pd.read_excel(file_path)
+        # elif file_path:
+        #     return pd.read_csv(file_path)
+        # else:
+        #     logging.inf("File is not in correct formate")
+        return pd.read_csv(file_path)
     except Exception as e:
         USVISAEXCEPTION(sys,e)
+
+
+## load the data from S3
+
+def load_data_from_s3(Bucket:str,Path:str,S3Client:object):
+    try:
+        S3_Client = S3Client()
+        response = S3_Client.s3_client.get_object(Bucket=Bucket,Key=Path)
+        content =response['Body'].read()
+        csv_buffer = content.decode('utf-8')
+        return csv_buffer
+    except Exception as e:
+        USVISAEXCEPTION(sys,e)
+
+def load_data_to_s3(Bucket:str,path:str,S3Client:object,Body):
+    try:
+        S3_Client = S3Client()
+        S3_Client.s3_client.put_object(Bucket=Bucket,Key=path,Body=Body)
+    except Exception as e:
+        USVISAEXCEPTION(sys,e)
+
+
+
 
 
 

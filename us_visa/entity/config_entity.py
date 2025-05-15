@@ -33,8 +33,8 @@ class S3Bucket:
             logging.info("Bucket exists {self.Bucket_name} at location {localtion}")
             return self.Bucket_name
 
-artifact_dir = posixpath.join(ARTIFACT_DIR_NAME,PIPELINE_NAME,CURRENT_TIME_STEMP)+"/"
-data_ingestion = posixpath.join(artifact_dir,DATA_INGESTION_DIR_NAME)+"/"
+# artifact_dir = posixpath.join(ARTIFACT_DIR_NAME,PIPELINE_NAME,CURRENT_TIME_STEMP)+"/"
+# data_ingestion = posixpath.join(artifact_dir,DATA_INGESTION_DIR_NAME)+"/"
 
 #s3cilent.s3_client.put_object(Bucket=Bucket_name,Key=data_ingestion)
 
@@ -61,22 +61,22 @@ class DataIngestionConfig:
     testing_file_path = posixpath.join(splited_file_dir_path,TEST_DATA)
 
 class DataValidationConfig:
-    data_validation_dir_path = os.path.join(training_pipeline_config.artifact_dir,DATA_VALIDATION_DIR_NAME)
-    data_validation_drift_report_dir_name = os.path.join(data_validation_dir_path,DATA_VALIDATION_DRIFT_REPORT_DIR_NAME,CURRENT_TIME_STEMP)
-    data_validation_drift_report_file_path = os.path.join(data_validation_drift_report_dir_name,DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
+    data_validation_dir_path = posixpath.join(training_pipeline_config.artifact_dir,DATA_VALIDATION_DIR_NAME)+"/"
+    data_validation_drift_report_dir_name = posixpath.join(data_validation_dir_path,DATA_VALIDATION_DRIFT_REPORT_DIR_NAME,CURRENT_TIME_STEMP)+"/"
+    data_validation_drift_report_file_path = posixpath.join(data_validation_drift_report_dir_name,DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
 
 class DataTransformationConfig:
-    data_transformation_dir_path = os.path.join(training_pipeline_config.artifact_dir,DATA_TRANSFORMATION_DIR_NAME)
-    data_transformation_transformed_data_dir = os.path.join(training_pipeline_config.artifact_dir,DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR)
-    data_transformation_transformed_object_dir = os.path.join(training_pipeline_config.artifact_dir,DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR)
-    transformed_train_file_path :str = os.path.join(data_transformation_transformed_data_dir,DATA_TRANSFORMATION_TRANSFORMED_TRAIN_FILE_NAME)
-    transformed_test_file_path : str = os.path.join(data_transformation_transformed_data_dir,DATA_TRANSFORMATION_TRANSFORMED_TEST_FILE_NAME)
-    transformed_object_file_path:str = os.path.join(data_transformation_transformed_object_dir,PREPROCESSING_OBJECT_FILE_NAME)
+    data_transformation_dir_path = posixpath.join(training_pipeline_config.artifact_dir,DATA_TRANSFORMATION_DIR_NAME)+"/"
+    data_transformation_transformed_data_dir = posixpath.join(training_pipeline_config.artifact_dir,DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR)+"/"
+    data_transformation_transformed_object_dir = posixpath.join(training_pipeline_config.artifact_dir,DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR)+"/"
+    transformed_train_file_path :str = posixpath.join(data_transformation_transformed_data_dir,DATA_TRANSFORMATION_TRANSFORMED_TRAIN_FILE_NAME)
+    transformed_test_file_path : str = posixpath.join(data_transformation_transformed_data_dir,DATA_TRANSFORMATION_TRANSFORMED_TEST_FILE_NAME)
+    transformed_object_file_path:str = posixpath.join(data_transformation_transformed_object_dir,PREPROCESSING_OBJECT_FILE_NAME)
 
 class ModelTrainerConfig:
-    model_trainer_dir_path = os.path.join(training_pipeline_config.artifact_dir,MODEL_TRAINER_DIR_NAME)
-    model_trainer_trained_dir_path = os.path.join(model_trainer_dir_path,MODEL_TRAINER_TRAINED_MODEL_DIR_NAME)
-    model_trainer_trained_model_path = os.path.join(model_trainer_dir_path,MODEL_TRAINER_TRAINER_MODEL_NAME)
+    model_trainer_dir_path = posixpath.join(training_pipeline_config.artifact_dir,MODEL_TRAINER_DIR_NAME)+"/"
+    model_trainer_trained_dir_path = posixpath.join(model_trainer_dir_path,MODEL_TRAINER_TRAINED_MODEL_DIR_NAME)+"/"
+    model_trainer_trained_model_path = posixpath.join(model_trainer_dir_path,MODEL_TRAINER_TRAINER_MODEL_NAME)
     
 
 

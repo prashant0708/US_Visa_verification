@@ -14,6 +14,7 @@ from us_visa.entity.artifact_entity import (DataIngestionArtifact,
                                             DataValidationArtifact,
                                             DataTransformationArtifact)
 from us_visa.entity.estimator import TargetValueMapping
+from us_visa.configuration.aws_config import S3Client
 
 
 
@@ -34,6 +35,7 @@ class DataTransformation:
             self.data_ingestion_artifact=data_ingestion_artifact
             self.data_validation_artifact=data_validation_artifact
             self.schema_config = read_yaml_file(file_path=SCHEMA_FILE_PATH)
+            self.s3client= S3Client()
             
         except Exception as e:
             raise USVISAEXCEPTION(sys,e)
@@ -100,9 +102,16 @@ class DataTransformation:
                 logging.info("Got the test data")
                 preprocessing = self.get_data_transformation_object()
                 logging.info("Got the preprocessing Object")
-
-                train_df = read_data(file_path=train_filePath)
-                test_df = read_data(file_path=test_filePath)
+                load_train_csv = load_data_from_s3(Bucket=BUCKET_NAME,Path=train_filePath,S3Client=S3Client)
+                logging.info("Train data StreamingBody  got from the s3 bucket ")
+                load_test_csv = load_data_from_s3(Bucket=BUCKET_NAME,Path=test_filePath,S3Client=S3Client)
+                
+                logging.info("Train data StreamingBody  got from the s3 bucket ")
+            
+                train_df = read_data(io.StringIO(load_train_csv))
+                logging.info("Training df created")
+                test_df = read_data(io.StringIO(load_test_csv))
+                logging.info("Testing df created")
 
                 ## split the train data into Independent and Target variable
                 ## On Train data set 
@@ -153,16 +162,30 @@ class DataTransformation:
                 test_arr = np.c_[input_feature_test_final,np.array(target_feature_test_final)]
                 logging.info("Created the train array and test array ")
                 logging.info("saving all the array in location ")
-                save_numpy_array_data(self.data_transformation_config.transformed_train_file_path,train_arr)
+
+                #save_numpy_array_data(self.data_transformation_config.transformed_train_file_path,train_arr)
+
+                buffer_value= save_numpy_array_data_s3(train_arr)
+                load_data_to_s3(Bucket=BUCKET_NAME,path=self.data_transformation_config.transformed_train_file_path,
+                                S3Client=S3Client,Body=buffer_value)
+
 
                 logging.info(f"Training array saved at [{self.data_transformation_config.transformed_train_file_path}]")
 
-                save_numpy_array_data(self.data_transformation_config.transformed_test_file_path,test_arr)
+                #save_numpy_array_data(self.data_transformation_config.transformed_test_file_path,test_arr)
+
+                buffer_value= save_numpy_array_data_s3(test_arr)
+                load_data_to_s3(Bucket=BUCKET_NAME,path=self.data_transformation_config.transformed_test_file_path,
+                                S3Client=S3Client,Body=buffer_value)
 
                 logging.info(f"Test array saved at [{self.data_transformation_config.transformed_test_file_path}]")
 
 
-                save_object(self.data_transformation_config.transformed_object_file_path,preprocessing)
+                #save_object(self.data_transformation_config.transformed_object_file_path,preprocessing)
+                buffer_obj=save_object_s3(preprocessing)
+                load_data_to_s3(Bucket=BUCKET_NAME,path=self.data_transformation_config.transformed_object_file_path,
+                                S3Client=S3Client,Body=buffer_obj)
+
 
                 logging.info(f"preprocessing object  saved at [{self.data_transformation_config.transformed_object_file_path}]")
 
