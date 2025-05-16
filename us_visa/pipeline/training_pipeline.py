@@ -5,9 +5,10 @@ from us_visa.components.data_ingestion import DataIngestion
 from us_visa.components.data_validation import DataValidation
 from us_visa.components.data_transformation import DataTransformation
 from us_visa.components.model_trainer import ModelTrainer
-from us_visa.entity.config_entity import DataIngestionConfig ,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
+from us_visa.components.model_evaluation import ModelEvaluation
+from us_visa.entity.config_entity import DataIngestionConfig ,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
 from us_visa.entity.artifact_entity import (DataIngestionArtifact,DataValidationArtifact,
-                                            DataTransformationArtifact,ModelTrainerArtifact)
+                                            DataTransformationArtifact,ModelTrainerArtifact,ModelEvaluationArtifact)
 
 class TrainPipeline:
     def __init__(self):
@@ -15,6 +16,7 @@ class TrainPipeline:
         self.data_validation_config = DataValidationConfig()
         self.data_transformation_config = DataTransformationConfig()
         self.model_config = ModelTrainerConfig()
+        self.model_evaluation_config = ModelEvaluationConfig()
     def start_data_ingestion(self):
         try:
             data_ingestion = DataIngestion(data_ingestion_config=self.data_ingestion_config)
@@ -54,12 +56,22 @@ class TrainPipeline:
             return model_trainer_artifact
         except Exception as e:
             raise USVISAEXCEPTION(sys,e)
-
-
+        
+    def start_model_evaluation(self):
+        try:
+            model_evaluation = ModelEvaluation(data_transformation_artifact=self.start_data_transformation(),
+                                               
+                                               model_trainer_artifact=self.start_model_trainer(),
+                                               model_evaluation_config=self.model_evaluation_config)
+            model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
+            return model_evaluation_artifact
+        except Exception as e:
+            raise USVISAEXCEPTION(sys,e)
 
     def run_pipeline(self):
         try:
             #data_validation_artifact = self.start_data_validation()
-            start_data_transformation= self.start_model_trainer()
+            start_model_trainer= self.start_model_trainer()
+            start_model_evaluation = self.start_model_evaluation()
         except Exception as e:
             raise USVISAEXCEPTION(e, sys) from e

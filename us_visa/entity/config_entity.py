@@ -77,6 +77,12 @@ class ModelTrainerConfig:
     model_trainer_dir_path = posixpath.join(training_pipeline_config.artifact_dir,MODEL_TRAINER_DIR_NAME)+"/"
     model_trainer_trained_dir_path = posixpath.join(model_trainer_dir_path,MODEL_TRAINER_TRAINED_MODEL_DIR_NAME)+"/"
     model_trainer_trained_model_path = posixpath.join(model_trainer_dir_path,MODEL_TRAINER_TRAINER_MODEL_NAME)
+
+
+class ModelEvaluationConfig:
+    chnaged_threshould_score:float = MODEL_EVALUATION_CHNAGED_THRESHOLD_SCORE
+    bucket_name :str = MODEL_BUCKET_NAME
+    s3_model_key_path :str = MODEL_FILE_NAME
     
 
 

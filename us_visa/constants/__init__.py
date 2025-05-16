@@ -18,6 +18,8 @@ CURRENT_YEAR = date.today().year
 PREPROCESSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 SCHEMA_FILE_PATH = os.path.join("config","schema.yaml")
 
+MODEL_FILE_NAME = "model.pkl"
+
 
 """     
 AWS Configuration constant file
@@ -26,8 +28,9 @@ AWS Configuration constant file
 AWS_ACCESS_KEY_ID_ENV_KEY = "Access_key",
 AWS_SECRATE_ACCESS_KEY_ENV_KEY = "Secret_access_key",
 REGION = "ap-south-1"
-CHECK_REGION= "us-est-1"
+CHECK_REGION= "us-east-1"
 BUCKET_NAME= 'us-visa-artifact'
+
 """ 
 Data Ingestion related constant start with Data_Ingestion VAR NAME 
 """
@@ -65,6 +68,18 @@ MODEL_TRAINER_TRAINED_MODEL_DIR_NAME :str = "trained_Model"
 MODEL_TRAINER_TRAINER_MODEL_NAME:str = "model.pkl" 
 MODEL_TRAINER_EXPECTED_ACCURACY:float = 0.6
 MODEL_TRAINER_MODEL_CONFIG_PATH:str = os.path.join('config','model.yaml')
+
+
+"""  
+Model Evaluation related Constant
+"""
+MODEL_EVALUATION_CHNAGED_THRESHOLD_SCORE : float = 0.02
+MODEL_BUCKET_NAME = "usvisa-model2024"
+MODEL_PUSHER_S3_KEY = "model-registry"
+
+
+APP_HOST = "0.0.0.0"
+APP_PORT = 8080
 
 
 

@@ -71,8 +71,7 @@ class ModelTrainer:
             us_visa_model = USVisaModel(preprocessing_obj=preprocessing_obj,
                                         trained_object_model=best_model_details.best_model)
             logging.info("Created usvisa model object with preprocessor and model")
-            logging.info("Created best model file path.")
-
+           
             #save_object(self.model_trainer_config.model_trainer_trained_model_path,us_visa_model)
             buffer_obj=save_object_s3(us_visa_model)
             load_data_to_s3(Bucket=BUCKET_NAME,path=self.model_trainer_config.model_trainer_trained_model_path,

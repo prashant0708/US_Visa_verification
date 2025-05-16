@@ -137,6 +137,9 @@ def load_numpy_array_data (file_path:str)-> np.array:
         raise USVISAEXCEPTION(e,sys) from e
     
 def load_numpy_array_data_s3(s3,key,Bucket)->np.array:
+    """   
+    This method is to load the numpy array from the S3 Bucket
+    """
     try:
         response = s3.s3_client.get_object(Bucket = Bucket,Key=key)
         array = np.load(io.BytesIO(response['Body'].read()))
