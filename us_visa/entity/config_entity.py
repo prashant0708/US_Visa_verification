@@ -80,9 +80,14 @@ class ModelTrainerConfig:
 
 
 class ModelEvaluationConfig:
-    chnaged_threshould_score:float = MODEL_EVALUATION_CHNAGED_THRESHOLD_SCORE
+    changed_threshould_score:float = MODEL_EVALUATION_CHNAGED_THRESHOLD_SCORE
     bucket_name :str = MODEL_BUCKET_NAME
     s3_model_key_path :str = MODEL_FILE_NAME
+
+class ModelPusherConfig:
+    Model_Pusher_Bucket_Name : str = MODEL_BUCKET_NAME
+    S3_Key_Model_Pusher_Path :str = MODEL_FILE_NAME
+
     
 
 

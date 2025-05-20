@@ -99,12 +99,14 @@ class ModelEvaluation:
         This method is initiate the model evaluation process. 
         """
         try:
-            self.evaluate_model()
+            model_evaluation_response=self.evaluate_model()
             s3_model_path = self.model_evaluation_config.s3_model_key_path
             trained_model_path= self.model_trainer_artifact.trained_model_file_path
+            print(trained_model_path)
             trainer_model_f1_score = self.model_trainer_artifact.metric_artifact.f1_score
+            evaluation_result = self.evaluate_model()
 
-            model_evaluation_artifact = ModelEvaluationArtifact(is_model_accepted=EvaluateModelResponse.is_model_accepted,
+            model_evaluation_artifact = ModelEvaluationArtifact(is_model_accepted=model_evaluation_response.is_model_accepted,
                                                                 Accepted_model_accuracy=trainer_model_f1_score,
                                                                 S3_model_path=s3_model_path,
                                                                 trained_model_path=trained_model_path)

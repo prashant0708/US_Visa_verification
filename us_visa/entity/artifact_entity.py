@@ -43,3 +43,8 @@ class ModelEvaluationArtifact:
     Accepted_model_accuracy:float
     S3_model_path:str
     trained_model_path:str
+
+@dataclass
+class ModelPusherArtifact:
+    Model_Pusher_Bucket_Name : str 
+    S3_Key_Model_Pusher_Path :str

@@ -1,7 +1,7 @@
 import os 
 import sys
-def error_message_details(error,error_detail):
-    _,_,exc_tb=error_detail.exc_info()
+def error_message_details(error,error_detail:sys):
+    _,_,exc_tb=sys.exc_info()
     file_name= exc_tb.tb_frame.f_code.co_filename
     exception_block_line_number = exc_tb.tb_frame.f_lineno
     try_block_line_number = exc_tb.tb_lineno
