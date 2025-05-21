@@ -2,6 +2,7 @@ import os
 import sys
 import numpy as np
 import dill
+import pickle
 import yaml
 from pandas import DataFrame
 import pandas as pd

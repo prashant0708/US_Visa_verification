@@ -3,6 +3,7 @@ from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
 from us_visa.configuration.aws_config import S3Client
 import posixpath
+from dataclasses import dataclass
 
 
 
@@ -87,6 +88,12 @@ class ModelEvaluationConfig:
 class ModelPusherConfig:
     Model_Pusher_Bucket_Name : str = MODEL_BUCKET_NAME
     S3_Key_Model_Pusher_Path :str = MODEL_FILE_NAME
+
+
+@dataclass
+class USvisaPredictorConfig:
+    model_file_path: str = MODEL_FILE_NAME
+    model_bucket_name: str = MODEL_BUCKET_NAME
 
     
 
