@@ -91,11 +91,9 @@ class TrainPipeline:
             if not self.data_transformation_artifact:
                 self.start_data_transformation()
 
-            model_evaluation = ModelEvaluation(
-                data_transformation_artifact=self.data_transformation_artifact,
-                model_trainer_artifact=self.model_trainer_artifact,
-                model_evaluation_config=self.model_evaluation_config
-            )
+            model_evaluation = ModelEvaluation(data_ingestion_artifact=self.data_ingestion_artifact,
+                                               model_trainer_artifact=self.model_trainer_artifact,
+                                               model_evaluation_config=self.model_evaluation_config)
             self.model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
             return self.model_evaluation_artifact
         except Exception as e:

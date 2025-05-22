@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>US VISA Predictions</title>
+</head>
+<body>
+    <container class="container">  
+
+        <div>
+            <h1 class="header">US VISA APPLICATION Prediction</h1>
+        </div>
+        <div class = "form">   
+            
+            <form method="post",action="/predict"class="form-predict">
+                <!-------------------- continent ------>
+                <label for="continent">Choose continent:</label><br>
+                <select name="continent" id="continent-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Asia">Asis</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+                <br>
+                <!-------------------- education_of_employee ------>
+                <label for="Education">Choose Employee Education:</label><br>
+                <select name="education_of_employee" id="education_of_employee-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Master's">Master's</option>
+                    <option value="Bachelor's">Bachelor's</option>
+                    <option value="High School">High School</option>
+                    <option value="Doctorate">Doctorate</option>
+                </select>
+                <br>
+                <!-------------------- Job Experiance ------>
+                <label for="Job Experiance">Choose Job Experiance:</label><br>
+                <select name="has_job_experience" id="has_job_experience-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+                <br>
+                <!-------------------- Job Training ------>
+                <label for="Required Job Training">Choose Job Training:</label><br>
+                <select name="requires_job_training" id="requires_job_training-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+                <br>
+                <br>
+                <!-------------------- No of Employee in Company ------>
+                <label for="no_of_employees">No of Employee in Company</label><br>
+                <input type="number" id ="no_of_employees_id" name="No of Employee" required/><br>
+                
+                <!-------------------- Region of Employment------>
+                <label for="region_of_employment">Choose Region of Employment:</label><br>
+                <select name="region_of_employment" id="region_of_employment-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Northeast">Northeast</option>
+                    <option value="West">West</option>
+                    <option value="South">South</option>
+                    <option value="Midwest">Midwest</option>
+                    <option value="Island">Island</option>
+                </select>
+                <br>
+                <!-------------------- prevailing_wage------>
+                <label for="prevailing_wage">Prevailing Wages</label><br>
+                <input type="text" id ="prevailing_wage_id" name="prevailing_wage" required/><br>
+                
+                <!-------------------- unit_of_wage------>
+                
+                <label for="unit_of_wage">Choose unit_of_wage:</label><br>
+                <select name="unit_of_wage" id="unit_of_wage-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Year">Year</option>
+                    <option value="Hour">Hour</option>
+                    <option value="Month">Month</option>
+                    <option value="Week">Week</option>
+                </select>
+                <br>
+                <!-------------------- full_time_position------>
+                <label for="full_time_position">Choose Position is full time or not:</label><br>
+                <select name="full_time_position" id="full_time_position-id">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+                <br>
+                <!-------------------- Company Age------>
+                <label for="company_age">Company Age</label><br>
+                <input type="number" id ="company_age_id" name="company_age" required/><br>
+                <button type="submit">Predict</button>
+            </form>
+        </div>
+        {% if result %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+
+
+        
+    </container>
+    </body>
+    </html>

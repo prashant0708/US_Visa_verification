@@ -35,6 +35,7 @@ class ClassificationMetricArtifact:
 @dataclass
 class ModelTrainerArtifact:
     trained_model_file_path:str 
+    trainer_model_S3_Bucket:str
     metric_artifact:ClassificationMetricArtifact
 
 @dataclass
@@ -43,6 +44,7 @@ class ModelEvaluationArtifact:
     Accepted_model_accuracy:float
     S3_model_path:str
     trained_model_path:str
+    trainer_model_s3_buckt_name:str
 
 @dataclass
 class ModelPusherArtifact:

@@ -87,17 +87,37 @@ class USVisaEstimator:
             raise USVISAEXCEPTION(sys,e)
             
 
-    def save_model(self,Body):
+    def save_model(self,source_bucket,source_key):
+        """
+        Copies a model file from one S3 location to another.
+
+        :param source_bucket: Source S3 bucket name
+        :param source_key: Source S3 key (path to model)
+    """
         try:
+            copy_source={
+                    'Bucket':source_bucket,
+                    'Key':source_key
+                }
             if self.is_model_present(model_path=self.model_path):
 
-                self.s3.s3_client.put_object(Bucket=self.Bucket,Key=self.model_path,Body=Body)
+                #self.s3.s3_client.put_object(Bucket=self.Bucket,Key=self.model_path,Body=Body)
+                self.s3.s3_client.copy_object(
+                    CopySource=copy_source,
+                    Bucket = self.Bucket,
+                    Key = self.model_path
+                )
             else:
                 
                 
                 create_bucket= self.Bucket_client.create_bucket()
                 logging.info(f"Model Pusher Bucket created{create_bucket}")
-                self.s3.s3_client.put_object(Bucket=self.Bucket,Key=self.model_path,Body=Body)
+                
+                self.s3.s3_client.copy_object(
+                    CopySource=copy_source,
+                    Bucket = self.Bucket,
+                    Key = self.model_path
+                )
 
         except Exception as e:
             raise USVisaEstimator(sys,e)
@@ -110,7 +130,7 @@ class USVisaEstimator:
         try:
             if self.loaded_model is None:
                 self.loaded_model = self.load_model()
-            return self.loaded_model.predict(dataframe=dataframe)
+            return self.loaded_model.predict(dataframe)
         except Exception as e:
             raise USVisaEstimator(sys,e)
 

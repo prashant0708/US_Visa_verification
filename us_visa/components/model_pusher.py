@@ -18,12 +18,15 @@ class ModelPusher:
     def initiate_model_pusher(self):
         logging.info("Entered to the Initiate model_pusher")
         try:
-            self.usvisaestimator.save_model(Body=self.model_evaluation_artifact.trained_model_path)
+          # self.model_evaluation_artifact.trained_model_path
+            self.usvisaestimator.save_model(source_bucket=self.model_evaluation_artifact.trainer_model_s3_buckt_name,
+                                            source_key=self.model_evaluation_artifact.trained_model_path)
             model_pusher_artifact = ModelPusherArtifact(Model_Pusher_Bucket_Name=self.model_pusher_config.Model_Pusher_Bucket_Name,
                                                         S3_Key_Model_Pusher_Path=self.model_pusher_config.S3_Key_Model_Pusher_Path)
+            logging.info(f"Model pusher artifact [{model_pusher_artifact}]")
             return model_pusher_artifact
             
-            logging.info(f"Model pusher artifact [{model_pusher_artifact}]")
+            
         except Exception as e:
             raise USVISAEXCEPTION(e,sys) from e
         

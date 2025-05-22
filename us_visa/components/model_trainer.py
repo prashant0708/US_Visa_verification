@@ -73,13 +73,15 @@ class ModelTrainer:
             logging.info("Created usvisa model object with preprocessor and model")
            
             #save_object(self.model_trainer_config.model_trainer_trained_model_path,us_visa_model)
-            buffer_obj=save_object_s3(us_visa_model)
+            buffer_obj=serialize_object_to_buffer(us_visa_model)
             load_data_to_s3(Bucket=BUCKET_NAME,path=self.model_trainer_config.model_trainer_trained_model_path,
                                 S3Client=S3Client,Body=buffer_obj)
 
             model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.model_trainer_trained_model_path,
+                                                          trainer_model_S3_Bucket=self.model_trainer_config.model_trainer_trainer_model_s3_bucket,
                                                       metric_artifact=metric_artifact)
             logging.info(f"Model Trainer Artifact [{model_trainer_artifact}]")
+            logging.info("Model Training is completed")
             return model_trainer_artifact
         except Exception as e:
             raise USVISAEXCEPTION(sys,e)

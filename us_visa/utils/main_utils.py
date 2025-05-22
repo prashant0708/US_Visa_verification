@@ -73,12 +73,8 @@ def save_object(file_path:str , obj:object)->None:
 
 ## save object to the S3
 
-def save_object_s3(obj:object)->io:
-    """ 
-    save object to s3
-    
-    array: np.array data to save
-    """
+def serialize_object_to_buffer(obj:object)->io.BytesIO:
+    """Serialize Python object to a BytesIO buffer using dill."""
     try:
         buffer = io.BytesIO()
         dill.dump(obj,buffer)

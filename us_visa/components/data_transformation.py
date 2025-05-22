@@ -182,7 +182,7 @@ class DataTransformation:
 
 
                 #save_object(self.data_transformation_config.transformed_object_file_path,preprocessing)
-                buffer_obj=save_object_s3(preprocessing)
+                buffer_obj=serialize_object_to_buffer(preprocessing)
                 load_data_to_s3(Bucket=BUCKET_NAME,path=self.data_transformation_config.transformed_object_file_path,
                                 S3Client=S3Client,Body=buffer_obj)
 

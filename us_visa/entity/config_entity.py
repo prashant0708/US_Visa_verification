@@ -78,6 +78,7 @@ class ModelTrainerConfig:
     model_trainer_dir_path = posixpath.join(training_pipeline_config.artifact_dir,MODEL_TRAINER_DIR_NAME)+"/"
     model_trainer_trained_dir_path = posixpath.join(model_trainer_dir_path,MODEL_TRAINER_TRAINED_MODEL_DIR_NAME)+"/"
     model_trainer_trained_model_path = posixpath.join(model_trainer_dir_path,MODEL_TRAINER_TRAINER_MODEL_NAME)
+    model_trainer_trainer_model_s3_bucket = BUCKET_NAME
 
 
 class ModelEvaluationConfig:
