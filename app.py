@@ -6,13 +6,15 @@ from us_visa.pipeline.training_pipeline import TrainPipeline
 from us_visa.constants import APP_HOST,APP_PORT
 
 from fastapi import FastAPI , Request,Form,BackgroundTasks
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse 
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel,Field
 import uvicorn
 from uvicorn import run as app_run
-
+from typing import Annotated
+import os
+from glob import glob
 
 app = FastAPI()
 
@@ -37,7 +39,7 @@ class USVisaRequest(BaseModel):
      prevailing_wage:float
      unit_of_wage:str
      full_time_position:str
-     company_age:int
+     company_age:Annotated[int ,Field(..., gt=5,description = "Company age since it has establish")]
 
 
 templates = Jinja2Templates(directory="templates")
@@ -51,24 +53,29 @@ async def home(request: Request):
 
 
 @app.post("/predict",response_class=HTMLResponse)
-async def predict_us_visa(data:USVisaRequest):
-
-
-
-
-     
+async def predict_us_visa(request: Request,
+    continent: Annotated[str, Form()],
+    education_of_employee: Annotated[str, Form()],
+    has_job_experience: Annotated[str, Form()],
+    requires_job_training: Annotated[str, Form()],
+    no_of_employees: Annotated[int, Form()],
+    region_of_employment: Annotated[str, Form()],
+    prevailing_wage: Annotated[float, Form()],
+    unit_of_wage: Annotated[str, Form()],
+    full_time_position: Annotated[str, Form()],
+    company_age: Annotated[int, Form(gt=5)]):
      try:
           visa_data = USVisaData(
-               continent= data.continent,
-               education_of_employee=data.education_of_employee,
-               has_job_experience=data.has_job_experience,
-               requires_job_training=data.requires_job_training,
-               no_of_employees=data.no_of_employees,
-               region_of_employment=data.region_of_employment,
-               prevailing_wage=data.prevailing_wage,
-               unit_of_wage=data.unit_of_wage,
-               full_time_position=data.full_time_position,
-               company_age=data.company_age
+               continent= continent,
+               education_of_employee=education_of_employee,
+               has_job_experience=has_job_experience,
+               requires_job_training=requires_job_training,
+               no_of_employees=no_of_employees,
+               region_of_employment=region_of_employment,
+               prevailing_wage=prevailing_wage,
+               unit_of_wage=unit_of_wage,
+               full_time_position=full_time_position,
+               company_age=company_age
           )
 
           df = visa_data.get_usvisa_dataframe()
@@ -76,17 +83,45 @@ async def predict_us_visa(data:USVisaRequest):
 
           result = "Certified" if  prediction == 1.0 else "Denied"
 
-          return {"prediction":result}
+          return templates.TemplateResponse("index.html", {"request": request, "result": result})
      except Exception as e:
         return {"error": str(e)}
 
-@app.get("/train")
-def train_model():
+@app.get("/train", response_class=HTMLResponse)
+async def train_model(request: Request, background_tasks: BackgroundTasks):
     try:
-        pipeline = TrainPipeline()
-        pipeline.run_pipeline()
-        return {"message": "Training completed successfully"}
+        def run_training():
+            pipeline = TrainPipeline()
+            pipeline.run_pipeline()
+
+        background_tasks.add_task(run_training)
+
+        # Immediately return the response while training runs in background
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "train_message": "Training started in background...",
+            "log_content": ""
+        })
     except Exception as e:
-        return {"error": str(e)}
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "train_message": "Training started in background...",
+            "log_content": ""
+        })
+    
+@app.get("/logs", response_class=HTMLResponse)
+async def show_logs(request: Request):
+    latest_log = ""
+    if latest_log:
+        with open(latest_log, "r") as file:
+            log_content = file.read()
+    else:
+        log_content = "No logs found."
+
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "train_message": "",
+        "log_content": log_content
+    })
 if __name__ == "__main__":
      uvicorn.run(app, host=APP_HOST, port=APP_PORT)

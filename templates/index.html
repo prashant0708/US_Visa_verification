@@ -7,103 +7,137 @@
     <title>US VISA Predictions</title>
 </head>
 <body>
-    <container class="container">  
-
-        <div>
+     <div>
             <h1 class="header">US VISA APPLICATION Prediction</h1>
         </div>
-        <div class = "form">   
-            
-            <form method="post",action="/predict"class="form-predict">
-                <!-------------------- continent ------>
-                <label for="continent">Choose continent:</label><br>
-                <select name="continent" id="continent-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Asia">Asis</option>
-                    <option value="Europe">Europe</option>
-                    <option value="North America">North America</option>
-                    <option value="South America">South America</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Oceania">Oceania</option>
-                </select>
-                <br>
-                <!-------------------- education_of_employee ------>
-                <label for="Education">Choose Employee Education:</label><br>
-                <select name="education_of_employee" id="education_of_employee-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Master's">Master's</option>
-                    <option value="Bachelor's">Bachelor's</option>
-                    <option value="High School">High School</option>
-                    <option value="Doctorate">Doctorate</option>
-                </select>
-                <br>
-                <!-------------------- Job Experiance ------>
-                <label for="Job Experiance">Choose Job Experiance:</label><br>
-                <select name="has_job_experience" id="has_job_experience-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Y">Y</option>
-                    <option value="N">N</option>
-                </select>
-                <br>
-                <!-------------------- Job Training ------>
-                <label for="Required Job Training">Choose Job Training:</label><br>
-                <select name="requires_job_training" id="requires_job_training-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Y">Y</option>
-                    <option value="N">N</option>
-                </select>
-                <br>
-                <br>
-                <!-------------------- No of Employee in Company ------>
-                <label for="no_of_employees">No of Employee in Company</label><br>
-                <input type="number" id ="no_of_employees_id" name="No of Employee" required/><br>
-                
-                <!-------------------- Region of Employment------>
-                <label for="region_of_employment">Choose Region of Employment:</label><br>
-                <select name="region_of_employment" id="region_of_employment-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Northeast">Northeast</option>
-                    <option value="West">West</option>
-                    <option value="South">South</option>
-                    <option value="Midwest">Midwest</option>
-                    <option value="Island">Island</option>
-                </select>
-                <br>
-                <!-------------------- prevailing_wage------>
-                <label for="prevailing_wage">Prevailing Wages</label><br>
-                <input type="text" id ="prevailing_wage_id" name="prevailing_wage" required/><br>
-                
-                <!-------------------- unit_of_wage------>
-                
-                <label for="unit_of_wage">Choose unit_of_wage:</label><br>
-                <select name="unit_of_wage" id="unit_of_wage-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Year">Year</option>
-                    <option value="Hour">Hour</option>
-                    <option value="Month">Month</option>
-                    <option value="Week">Week</option>
-                </select>
-                <br>
-                <!-------------------- full_time_position------>
-                <label for="full_time_position">Choose Position is full time or not:</label><br>
-                <select name="full_time_position" id="full_time_position-id">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Y">Y</option>
-                    <option value="N">N</option>
-                </select>
-                <br>
-                <!-------------------- Company Age------>
-                <label for="company_age">Company Age</label><br>
-                <input type="number" id ="company_age_id" name="company_age" required/><br>
-                <button type="submit">Predict</button>
-            </form>
-        </div>
-        {% if result %}
-        <h2>Result: {{ result }}</h2>
-    {% endif %}
+    <container class="container">  
 
+            <div class="training">  
 
-        
+                <h2>Model Training</h2>
+                <form method="get" action="/train">
+                    <button type="submit">Train Model</button>
+                </form>
+                {% if train_message %}
+                <h2>{{ train_message }}</h2>
+                {% endif %}
+                
+                {% if log_content %}
+                <h3>Training Log</h3>
+                <pre style="background: #352222; padding: 10px; border-radius: 5px; max-height: 400px; overflow-y: scroll;">
+                    {{ log_content }}
+                </pre>
+                {% endif %}
+            </div>
+
+            <div class = "form">   
+                  
+                <form method="post" action="/predict"class="form-predict">
+                    <h2 class="form-title">Visa Form</h2> 
+                    <div class="input">  
+
+                        
+                        <div class="left-end"> 
+                            <!-------------------- continent ------>
+                            <label for="continent">Choose continent:</label>
+                            <select name="continent" id="continent-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Asia">Asis</option>
+                                <option value="Europe">Europe</option>
+                                <option value="North America">North America</option>
+                                <option value="South America">South America</option>
+                                <option value="Africa">Africa</option>
+                                <option value="Oceania">Oceania</option>
+                            </select>
+                            
+                            <!-------------------- education_of_employee ------>
+                            <label for="Education">Choose Employee Education:</label>
+                            <select name="education_of_employee" id="education_of_employee-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Master's">Master's</option>
+                                <option value="Bachelor's">Bachelor's</option>
+                                <option value="High School">High School</option>
+                                <option value="Doctorate">Doctorate</option>
+                            </select>
+                            
+                            <!-------------------- Job Experiance ------>
+                            <label for="Job Experiance">Choose Job Experiance:</label>
+                            <select name="has_job_experience" id="has_job_experience-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            
+                            <!-------------------- Job Training ------>
+                            <label for="Required Job Training">Choose Job Training:</label>
+                            <select name="requires_job_training" id="requires_job_training-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            
+                            <!-------------------- No of Employee in Company ------>
+                            <label for="no_of_employees">No of Employee in Company</label>
+                            <input type="number" id ="no_of_employees_id" name="no_of_employees" required/>
+                            
+                        </div>
+                        
+                        <!------left end -->
+                        
+                        <div class="right-end">  
+                            
+                            
+                            <!-------------------- Region of Employment------>
+                            <label for="region_of_employment">Choose Region of Employment:</label>
+                            <select name="region_of_employment" id="region_of_employment-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Northeast">Northeast</option>
+                                <option value="West">West</option>
+                                <option value="South">South</option>
+                                <option value="Midwest">Midwest</option>
+                                <option value="Island">Island</option>
+                            </select>
+                            
+                            <!-------------------- prevailing_wage------>
+                            <label for="prevailing_wage">Prevailing Wages</label>
+                            <input type="text" id ="prevailing_wage_id" name="prevailing_wage" required/>
+                            
+                            <!-------------------- unit_of_wage------>
+                            
+                            <label for="unit_of_wage">Choose unit_of_wage:</label>
+                            <select name="unit_of_wage" id="unit_of_wage-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Year">Year</option>
+                                <option value="Hour">Hour</option>
+                                <option value="Month">Month</option>
+                                <option value="Week">Week</option>
+                            </select>
+                            
+                            <!-------------------- full_time_position------>
+                            <label for="full_time_position">Choose Position is full time or not:</label>
+                            <select name="full_time_position" id="full_time_position-id">
+                                <option value="">--Please choose an option--</option>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                            
+                            <!-------------------- Company Age------>
+                            <label for="company_age">Company Age</label>
+                            <input type="number" id ="company_age_id" name="company_age" required/>
+                        </div>
+                        
+                    </div>
+                    <button type="submit">Predict</button>
+                </form>
+                <result class="result">   
+                    
+                    {% if result %}
+                    <h2>Result: </h2>
+                    <h2>{{ result }}</h2>
+                    {% endif %}
+                </result>
+            </div> 
+         
     </container>
     </body>
     </html>
