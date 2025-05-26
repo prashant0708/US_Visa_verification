@@ -5,14 +5,16 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-## copy dependency list and install
-
-copy requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
-
 ## copy all source code
 
 COPY . .
+
+## copy dependency list and install
+
+Copy requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+
 
 ## Expose the fastapi port
 
