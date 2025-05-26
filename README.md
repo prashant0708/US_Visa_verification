@@ -47,3 +47,26 @@ taskkill /f /im Code.exe
 flow chart: https://whimsical.com/guides-LCagbXm9kSNTC2h1vcznWS
 ```
 
+## Policy to assign for deployment in AWS
+
+```
+AMAZONS3FULLACCESS
+AMAZONEC2FULLACCESS
+AMAZONEC2CONTAINERREGISTRYFULLACCESS
+
+```
+
+## ECR URI
+
+```
+975050217912.dkr.ecr.ap-south-1.amazonaws.com/mlops/usvisa
+
+```
+
+## Runner name
+
+```
+self-hosted
+
+```
+
