@@ -59,7 +59,7 @@ AMAZONEC2CONTAINERREGISTRYFULLACCESS
 ## ECR URI
 
 ```
-975050217912.dkr.ecr.ap-south-1.amazonaws.com/mlops/usvisa
+975050217912.dkr.ecr.ap-south-1.amazonaws.com/usvisa
 
 ```
 
