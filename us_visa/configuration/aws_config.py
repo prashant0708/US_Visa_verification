@@ -6,8 +6,6 @@ import boto3
 from dotenv import load_dotenv
 
 load_dotenv()
-print(AWS_ACCESS_KEY_ID_ENV_KEY)
-print(AWS_SECRATE_ACCESS_KEY_ENV_KEY)
 class S3Client:
     s3_client =None
     s3_resource = None

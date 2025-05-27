@@ -25,8 +25,8 @@ MODEL_FILE_NAME = "model.pkl"
 AWS Configuration constant file
 
 """
-AWS_ACCESS_KEY_ID_ENV_KEY = "Access_key",
-AWS_SECRATE_ACCESS_KEY_ENV_KEY = "Secret_access_key",
+AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID",
+AWS_SECRATE_ACCESS_KEY_ENV_KEY = "AWS_SECRET_ACCESS_KEY",
 REGION = "ap-south-1"
 CHECK_REGION= "us-east-1"
 BUCKET_NAME= 'us-visa-artifact'
