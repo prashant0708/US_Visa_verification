@@ -60,6 +60,7 @@ AMAZONEC2CONTAINERREGISTRYFULLACCESS
 
 ```
 975050217912.dkr.ecr.ap-south-1.amazonaws.com/usvisa
+975050217912.dkr.ecr.ap-south-1.amazonaws.com/usvisa
 
 ```
 
@@ -75,4 +76,25 @@ AWS_SECRET_ACCESS_KEY
 ECR_REPO
 
 ```
+
+## EC2 Instance command 
+
+```
+sudo apt-get update -y
+sudo apt-get upgrade
+```
+## install docker
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+
+sudo usermod -aG docker ubuntu
+
+newgrp docker
+
+```
+## configure the git runner with ec2
+```
+
 
