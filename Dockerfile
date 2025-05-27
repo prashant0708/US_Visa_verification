@@ -13,6 +13,9 @@ COPY . /app
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+## create .project-root file to fix from_root detection 
+RUN touch /app/.project-root
+
 #Start the FastAPI APP
 
 CMD ["python3", "app.py"]
