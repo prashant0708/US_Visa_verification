@@ -47,3 +47,54 @@ taskkill /f /im Code.exe
 flow chart: https://whimsical.com/guides-LCagbXm9kSNTC2h1vcznWS
 ```
 
+## Policy to assign for deployment in AWS
+
+```
+AMAZONS3FULLACCESS
+AMAZONEC2FULLACCESS
+AMAZONEC2CONTAINERREGISTRYFULLACCESS
+
+```
+
+## ECR URI
+
+```
+975050217912.dkr.ecr.ap-south-1.amazonaws.com/usvisa
+975050217912.dkr.ecr.ap-south-1.amazonaws.com/usvisa
+
+```
+
+## Runner name
+
+```
+self-hosted
+
+```
+AWS_ACCESS_KEY
+AWS_DEFAULT_REGION
+AWS_SECRET_ACCESS_KEY
+ECR_REPO
+
+```
+
+## EC2 Instance command 
+
+```
+sudo apt-get update -y
+sudo apt-get upgrade
+```
+## install docker
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+
+sudo usermod -aG docker ubuntu
+
+newgrp docker
+
+```
+## configure the git runner with ec2
+```
+
+

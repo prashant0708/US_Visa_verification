@@ -1,0 +1,7 @@
+continent,education_of_employee,has_job_experience,requires_job_training,no_of_employees,region_of_employment,prevailing_wage,unit_of_wage,full_time_position,company_age,prediction,prediction_time
+Asia,Master's,Y,Y,1200,Northeast,15000.0,Year,Y,15,1.0,0.9443
+Asia,Master's,Y,Y,12000,West,12000.0,Year,Y,15,1.0,0.1132
+Asia,Master's,Y,Y,1200,Northeast,15000.0,Year,Y,15,1.0,0.0196
+Asia,Master's,Y,Y,1200,West,1200.0,Hour,N,12,0.0,0.0178
+Asia,Master's,Y,N,1200,Northeast,12000.0,Year,Y,20,1.0,1.0469
+Asia,Master's,Y,N,1200,Northeast,12000.0,Year,Y,20,1.0,0.0123

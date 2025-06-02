@@ -4,7 +4,7 @@
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [],
-  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\vs2015_runtime-14.42.34433-hbfb602d_5",
+  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\vs2015_runtime-14.42.34433-hbfb602d_5",
   "files": [
     "Library/bin/api-ms-win-core-console-l1-1-0.dll",
     "Library/bin/api-ms-win-core-console-l1-2-0.dll",
@@ -118,12 +118,12 @@
   "fn": "vs2015_runtime-14.42.34433-hbfb602d_5.conda",
   "license": "",
   "link": {
-    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\vs2015_runtime-14.42.34433-hbfb602d_5",
+    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\vs2015_runtime-14.42.34433-hbfb602d_5",
     "type": 1
   },
   "md5": "9f125b013ca3a3b47b4909a79cd3bcb9",
   "name": "vs2015_runtime",
-  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\vs2015_runtime-14.42.34433-hbfb602d_5.conda",
+  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\vs2015_runtime-14.42.34433-hbfb602d_5.conda",
   "paths_data": {
     "paths": [
       {
