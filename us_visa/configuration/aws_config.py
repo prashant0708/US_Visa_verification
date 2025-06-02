@@ -6,8 +6,6 @@ import boto3
 from dotenv import load_dotenv
 
 load_dotenv()
-print(AWS_ACCESS_KEY_ID_ENV_KEY)
-print(AWS_SECRATE_ACCESS_KEY_ENV_KEY)
 class S3Client:
     s3_client =None
     s3_resource = None
@@ -18,8 +16,8 @@ class S3Client:
         and raise exception in case of enviroment variable is not set
         """
         if S3Client.s3_client == None or S3Client.s3_resource == None:
-            __access_key_id  = os.getenv("Access_key")
-            __secerate_key_id = os.getenv("Secret_access_key")
+            __access_key_id  = os.getenv("AWS_ACCESS_KEY_ID")
+            __secerate_key_id = os.getenv("AWS_SECRET_ACCESS_KEY")
             __region = REGION
 
             if __access_key_id is None:
