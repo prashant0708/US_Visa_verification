@@ -101,40 +101,40 @@ async def predict_us_visa(request: Request,
      except Exception as e:
         return {"error": str(e)}
 
-# @app.get("/train", response_class=HTMLResponse)
-# async def train_model(request: Request):
-#     try:
-#         logging.info("Training started")
-#         obj = TrainPipeline()
-#         obj.run_pipeline()
-#         logging.info("Training completed")
-#         # Immediately return the response while training runs in background
-#         return templates.TemplateResponse("index.html", {
-#             "request": request,
-#             "train_message": "Training Completed",
-#             "log_content": ""
-#         })
+@app.get("/train", response_class=HTMLResponse)
+async def train_model(request: Request):
+    try:
+        logging.info("Training started")
+        obj = TrainPipeline()
+        obj.run_pipeline()
+        logging.info("Training completed")
+        # Immediately return the response while training runs in background
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "train_message": "Training Completed",
+            "log_content": ""
+        })
         
-#     except Exception as e:
-#         return templates.TemplateResponse("index.html", {
-#             "request": request,
-#             "train_message": "Training started in background...",
-#             "log_content": ""
-#         })
+    except Exception as e:
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "train_message": "Training started in background...",
+            "log_content": ""
+        })
     
-# @app.get("/logs", response_class=HTMLResponse)
-# async def show_logs(request: Request):
-#     latest_log = ""
-#     if latest_log:
-#         with open(latest_log, "r") as file:
-#             log_content = file.read()
-#     else:
-#         log_content = "No logs found."
+@app.get("/logs", response_class=HTMLResponse)
+async def show_logs(request: Request):
+    latest_log = ""
+    if latest_log:
+        with open(latest_log, "r") as file:
+            log_content = file.read()
+    else:
+        log_content = "No logs found."
 
-#     return templates.TemplateResponse("index.html", {
-#         "request": request,
-#         "train_message": "",
-#         "log_content": log_content
-#     })
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "train_message": "",
+        "log_content": log_content
+    })
 if __name__ == "__main__":
      uvicorn.run(app, host=APP_HOST, port=APP_PORT)
