@@ -6,17 +6,17 @@
   "depends": [
     "vs2015_runtime >=14.42.34433"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\vc-14.42-haa95532_5",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\vc-14.42-haa95532_5",
   "files": [],
   "fn": "vc-14.42-haa95532_5.conda",
   "license": "BSD-3-Clause",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\vc-14.42-haa95532_5",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\vc-14.42-haa95532_5",
     "type": 1
   },
   "md5": "398668823dc0d65fb53f81decb9dee60",
   "name": "vc",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\vc-14.42-haa95532_5.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\vc-14.42-haa95532_5.conda",
   "paths_data": {
     "paths": [],
     "paths_version": 1

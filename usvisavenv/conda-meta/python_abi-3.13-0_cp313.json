@@ -6,17 +6,17 @@
     "python 3.13.* *_cp313"
   ],
   "depends": [],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\python_abi-3.13-0_cp313",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python_abi-3.13-0_cp313",
   "files": [],
   "fn": "python_abi-3.13-0_cp313.conda",
   "license": "BSD-3-Clause",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\python_abi-3.13-0_cp313",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python_abi-3.13-0_cp313",
     "type": 1
   },
   "md5": "fd87d8ec3270d306609b9715f6d45609",
   "name": "python_abi",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\python_abi-3.13-0_cp313.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python_abi-3.13-0_cp313.conda",
   "paths_data": {
     "paths": [],
     "paths_version": 1

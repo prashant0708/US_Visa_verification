@@ -6,6 +6,9 @@ import importlib
 from pyexpat import model
 from us_visa.utils.main_utils import *
 from dataclasses import dataclass
+import mlflow
+import mlflow.sklearn
+
 
 GRID_SEARCH_KEY = 'grid_search'
 MODULE = 'module'
@@ -96,6 +99,10 @@ class ModelFactory:
 
             grid_search_cv.fit(input_feature,output_feature)
 
+            
+
+
+
             grid_searches_best_model = GridSearchBestModel(model_serial_number=model_list.model_serial_number,
                                                         model=model_list.model_name,
                                                         best_model=grid_search_cv.best_estimator_,
@@ -112,20 +119,24 @@ class ModelFactory:
             for model_details in model_list:
                 grid_search_artifact =self.execute_grid_search_operation(model_list=model_details,
                                             input_feature=inputs,
-                                            output_feature=output)
+                                            output_feature=output)   
             return grid_search_artifact
         except Exception as e:
             raise(sys,e)
-    def best_score(self,X,Y,best_score=0.9):
+    def best_score(self,X,Y,best_score=1):
         try:
             result= self.initiate_grid_search_cv(inputs=X,output=Y)
+            
             if result.best_score>=best_score:
-                print(result)
                 return result
             else:
                 print("No Model found to meet the best score")
+                logging.info("No Model found to meet the best score")
         except Exception as e:
            raise(sys,e)
+        
+
+
 
 
         

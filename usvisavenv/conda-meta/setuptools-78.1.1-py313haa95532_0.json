@@ -4,10 +4,10 @@
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
-    "python >=3.13,<3.14.0a0",
-    "python_abi 3.13.* *_cp313"
+    "python_abi 3.13.* *_cp313",
+    "python >=3.13,<3.14.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\setuptools-78.1.1-py313haa95532_0",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\setuptools-78.1.1-py313haa95532_0",
   "files": [
     "Lib/site-packages/_distutils_hack/__init__.py",
     "Lib/site-packages/_distutils_hack/__pycache__/__init__.cpython-313.pyc",
@@ -884,12 +884,12 @@
   "fn": "setuptools-78.1.1-py313haa95532_0.conda",
   "license": "MIT",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\setuptools-78.1.1-py313haa95532_0",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\setuptools-78.1.1-py313haa95532_0",
     "type": 1
   },
   "md5": "60bdeb948583c5181712ebc30c1fcc38",
   "name": "setuptools",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\setuptools-78.1.1-py313haa95532_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\setuptools-78.1.1-py313haa95532_0.conda",
   "paths_data": {
     "paths": [
       {

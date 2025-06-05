@@ -25,12 +25,19 @@ from us_visa.maintance import ModelMonitoring
 S3_Client=S3Client()
 
 
-# obj = TrainPipeline()
-# obj.run_pipeline()
+obj = TrainPipeline()
+obj.run_pipeline()
 
 
-data_ingestion= DataIngestion(data_ingestion_config=DataIngestionConfig())
-obj= ModelMonitoring(data_ingestion_artifact=data_ingestion.initiate_data_ingestion(),model_monitoring_config=ModelMonitortingConfig())
+## checking logging 
 
-obj.initiate_model_monitoring()
+
+
+
+
+
+# data_ingestion= DataIngestion(data_ingestion_config=DataIngestionConfig())
+# obj= ModelMonitoring(data_ingestion_artifact=data_ingestion.initiate_data_ingestion(),model_monitoring_config=ModelMonitortingConfig())
+
+# obj.initiate_model_monitoring()
 

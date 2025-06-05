@@ -96,5 +96,51 @@ newgrp docker
 ```
 ## configure the git runner with ec2
 ```
+```
+# Create a folder
+```
+$ mkdir actions-runner && cd actions-runner
+ 
 
+```
+
+#Download the latest runner package
+```
+$ curl -o actions-runner-linux-x64-2.324.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.324.0/actions-runner-linux-x64-2.324.0.tar.gz
+
+```
+
+# Optional: Validate the hash
+
+```
+$ echo "e8e24a3477da17040b4d6fa6d34c6ecb9a2879e800aa532518ec21e49e21d7b4  actions-runner-linux-x64-2.324.0.tar.gz" | shasum -a 256 -c
+```
+# Extract the installer
+```
+$ tar xzf ./actions-runner-linux-x64-2.324.0.tar.gz
+
+```
+
+# Create the runner and start the configuration experience
+```
+./config.sh --url https://github.com/prashant0708/US_Visa_verification --token AVHZPRW4HFV5YDXRU3PUQKTIH2IUA
+```
+## Use this YAML in your workflow file for each job
+```
+self-hosted
+```
+
+# Last step, run it!
+
+```
+./run.sh
+
+```
+
+## to go inside the docker 
+
+```
+docker exec -it 80d1466bd154 /bin/bash
+
+```
 

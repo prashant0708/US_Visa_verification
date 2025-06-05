@@ -1,6 +1,6 @@
-==> 2025-05-27 23:01:17 <==
-# cmd: C:\Users\prash\anaconda3\Scripts\conda-script.py create -p usvisavenv python=3.13 -y
-# conda version: 24.11.3
+==> 2025-06-03 11:07:51 <==
+# cmd: C:\Users\Prashant kumar singh\anaconda3\Scripts\conda-script.py create -p usvisavenv python=3.13 -y
+# conda version: 24.11.2
 +defaults/noarch::pip-25.1-pyhc872135_2
 +defaults/noarch::tzdata-2025b-h04d1e81_0
 +defaults/win-64::bzip2-1.0.8-h2bbff1b_6
@@ -13,7 +13,7 @@
 +defaults/win-64::python_abi-3.13-0_cp313
 +defaults/win-64::setuptools-78.1.1-py313haa95532_0
 +defaults/win-64::sqlite-3.45.3-h2bbff1b_0
-+defaults/win-64::tk-8.6.14-h0416ee5_0
++defaults/win-64::tk-8.6.14-h5e9d12e_1
 +defaults/win-64::vc-14.42-haa95532_5
 +defaults/win-64::vs2015_runtime-14.42.34433-hbfb602d_5
 +defaults/win-64::wheel-0.45.1-py313haa95532_0

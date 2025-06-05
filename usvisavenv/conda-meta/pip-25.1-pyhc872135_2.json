@@ -4,11 +4,11 @@
   "channel": "https://repo.anaconda.com/pkgs/main/noarch",
   "constrains": [],
   "depends": [
-    "python >=3.9,<3.14.0a0",
     "setuptools",
-    "wheel"
+    "wheel",
+    "python >=3.9,<3.14.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2",
   "files": [
     "Lib/site-packages/pip-25.1.dist-info/INSTALLER",
     "Lib/site-packages/pip-25.1.dist-info/METADATA",
@@ -872,13 +872,13 @@
   "fn": "pip-25.1-pyhc872135_2.conda",
   "license": "MIT",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2",
     "type": 1
   },
   "md5": "2778327d2a700153fefe0e69438b18e1",
   "name": "pip",
   "noarch": "python",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\pip-25.1-pyhc872135_2.conda",
   "package_type": "noarch_python",
   "paths_data": {
     "paths": [

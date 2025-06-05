@@ -1,3 +1,4 @@
+import mlflow.sklearn
 from us_visa.logger import logging
 from us_visa.exception import USVISAEXCEPTION
 from us_visa.constants import *
@@ -14,6 +15,8 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from pandas import DataFrame
 import numpy as np
 from sklearn.pipeline import Pipeline
+import mlflow
+import mlflow.sklearn
 
 
 
@@ -31,7 +34,34 @@ class ModelTrainer:
             x_train,y_train,x_test,y_test = train[:,:-1], train[:,-1],test[:,:-1],test[:,-1]
             logging.info("Train and test array is prepared")
             model_factory = ModelFactory(model_config_path=self.model_config_path)
+
+            ## added line for mlflow
+            model_intilization_list= model_factory.model_intilization_list()
+            mlflow.set_tracking_uri(uri="http://127.0.0.1:5000/")
+            mlflow.set_experiment("USvisa_grid_search_production_1")
+            for model_detail in model_intilization_list:
+            ## monitor each param 
+                with mlflow.start_run(run_name=f"{model_detail.model_name}_run"):
+                    mlflow.log_param("model_name", model_detail.model_name)
+                    mlflow.log_param("best_model", model_detail.param_grid_search)
+                
+                
             best_model_details = model_factory.best_score(X=x_train,Y=y_train,best_score=MODEL_TRAINER_EXPECTED_ACCURACY)
+
+
+
+            logging.info("Logging of model in mlflow started")
+
+            ##Integrating the Mlfow to track the and log the model and best param
+            mlflow.set_tracking_uri(uri="http://127.0.0.1:5000/")
+            mlflow.set_experiment("USvisa_grid_search_production")
+            with mlflow.start_run(run_name=f"{best_model_details.model}_run"):
+                mlflow.log_param("model_name", best_model_details.model)
+                mlflow.log_param("best_model", str(best_model_details.best_model))
+                mlflow.log_param("best_parameters", str(best_model_details.best_parameters))
+                mlflow.log_metric("best_score", best_model_details.best_score)
+
+            logging.info("Logging of model in mlflow end")
             model_obj = best_model_details.best_model
             y_pred = model_obj.predict(x_test)
             accuracy = accuracy_score(y_test, y_pred) 

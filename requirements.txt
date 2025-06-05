@@ -1,6 +1,6 @@
 ipykernel
 pandas
-numpy==1.26.4
+# numpy==1.26.4
 matplotlib
 plotly
 seaborn
@@ -23,4 +23,5 @@ uvicorn
 jinja2
 python-multipart
 pymongo
+mlflow
 -e .

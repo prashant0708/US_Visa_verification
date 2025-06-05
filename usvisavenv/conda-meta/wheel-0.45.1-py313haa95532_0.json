@@ -4,10 +4,10 @@
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
-    "python >=3.13,<3.14.0a0",
-    "python_abi 3.13.* *_cp313"
+    "python_abi 3.13.* *_cp313",
+    "python >=3.13,<3.14.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\wheel-0.45.1-py313haa95532_0",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\wheel-0.45.1-py313haa95532_0",
   "files": [
     "Lib/site-packages/wheel-0.45.1.dist-info/LICENSE.txt",
     "Lib/site-packages/wheel-0.45.1.dist-info/METADATA",
@@ -80,12 +80,12 @@
   "fn": "wheel-0.45.1-py313haa95532_0.conda",
   "license": "MIT",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\wheel-0.45.1-py313haa95532_0",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\wheel-0.45.1-py313haa95532_0",
     "type": 1
   },
   "md5": "1eee23a0c96246f29b008521ca706bbe",
   "name": "wheel",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\wheel-0.45.1-py313haa95532_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\wheel-0.45.1-py313haa95532_0.conda",
   "paths_data": {
     "paths": [
       {

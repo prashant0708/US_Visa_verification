@@ -1,14 +1,14 @@
 {
-  "build": "h0416ee5_0",
-  "build_number": 0,
+  "build": "h5e9d12e_1",
+  "build_number": 1,
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
     "vc >=14.2,<15.0a0",
-    "vs2015_runtime >=14.27.29016,<15.0a0",
+    "vs2015_runtime >=14.29.30133,<15.0a0",
     "zlib >=1.2.13,<1.3.0a0"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\tk-8.6.14-h0416ee5_0",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tk-8.6.14-h5e9d12e_1",
   "files": [
     "Library/bin/tcl86t.dll",
     "Library/bin/tclsh.exe",
@@ -1079,74 +1079,74 @@
     "Library/lib/tk86t.lib",
     "Library/lib/tkstub86.lib"
   ],
-  "fn": "tk-8.6.14-h0416ee5_0.conda",
+  "fn": "tk-8.6.14-h5e9d12e_1.conda",
   "license": "TCL",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\tk-8.6.14-h0416ee5_0",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tk-8.6.14-h5e9d12e_1",
     "type": 1
   },
-  "md5": "da75707c571825eb2ad0eb806710b16b",
+  "md5": "f788fb9c9b3e33945ba62282d18c75bb",
   "name": "tk",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\tk-8.6.14-h0416ee5_0.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\tk-8.6.14-h5e9d12e_1.conda",
   "paths_data": {
     "paths": [
       {
         "_path": "Library/bin/tcl86t.dll",
         "file_mode": "binary",
         "path_type": "hardlink",
-        "prefix_placeholder": "C:\\b\\abs_17sr80_iza\\croot\\tk_1714770602079\\_h_env",
-        "sha256": "aaa0445afe3ab50b473e546b4ab3df4557c4d2a24a4b497bba84ac1cf0934c63",
-        "sha256_in_prefix": "aaa0445afe3ab50b473e546b4ab3df4557c4d2a24a4b497bba84ac1cf0934c63",
-        "size_in_bytes": 1839384
+        "prefix_placeholder": "C:\\b\\abs_7cplcn7ppb\\croot\\tk_1748849403747\\_h_env",
+        "sha256": "65ecaa0f9c4eb47ff20c41f4428d3a90d4c664416dd4b6a60cecfa8070ba66b0",
+        "sha256_in_prefix": "65ecaa0f9c4eb47ff20c41f4428d3a90d4c664416dd4b6a60cecfa8070ba66b0",
+        "size_in_bytes": 1839376
       },
       {
         "_path": "Library/bin/tclsh.exe",
         "path_type": "hardlink",
-        "sha256": "703f40dfc1f3bafe5a668fc9f42560125b22e17fd3de5682708de50b5b96af9f",
-        "sha256_in_prefix": "703f40dfc1f3bafe5a668fc9f42560125b22e17fd3de5682708de50b5b96af9f",
+        "sha256": "5725ccdd402cf79afe5bff9fb14e68962045dc45faf0ec07006885b5f02e98a7",
+        "sha256_in_prefix": "5725ccdd402cf79afe5bff9fb14e68962045dc45faf0ec07006885b5f02e98a7",
         "size_in_bytes": 82704
       },
       {
         "_path": "Library/bin/tclsh86.exe",
         "path_type": "hardlink",
-        "sha256": "e63238cd687b3710b82ef4b08f41e9730ffb230275ddd9e8420ada6e5cd1f910",
-        "sha256_in_prefix": "e63238cd687b3710b82ef4b08f41e9730ffb230275ddd9e8420ada6e5cd1f910",
-        "size_in_bytes": 82712
+        "sha256": "19e8e9d850047d68c665610123d76d7204988da770966063367f288c700e40ee",
+        "sha256_in_prefix": "19e8e9d850047d68c665610123d76d7204988da770966063367f288c700e40ee",
+        "size_in_bytes": 82704
       },
       {
         "_path": "Library/bin/tclsh86t.exe",
         "path_type": "hardlink",
-        "sha256": "b09938cd5e6196c184d6a9d350804cf6db2e10fc145614784e20514c4b0c0a4a",
-        "sha256_in_prefix": "b09938cd5e6196c184d6a9d350804cf6db2e10fc145614784e20514c4b0c0a4a",
+        "sha256": "cc68951b8648dbc774e9ab7a7c3caaa7210fc8f9beab33c6817278b05596e645",
+        "sha256_in_prefix": "cc68951b8648dbc774e9ab7a7c3caaa7210fc8f9beab33c6817278b05596e645",
         "size_in_bytes": 82704
       },
       {
         "_path": "Library/bin/tk86t.dll",
         "path_type": "hardlink",
-        "sha256": "a834c088405f485d50e4c0f03421941efdea728dd54ffeee5c06d7d367c0a632",
-        "sha256_in_prefix": "a834c088405f485d50e4c0f03421941efdea728dd54ffeee5c06d7d367c0a632",
-        "size_in_bytes": 1573144
+        "sha256": "14e23d8c2455f0fcdd0eeec883d00082a0afd9d33c413a4bec93de5bd69e510c",
+        "sha256_in_prefix": "14e23d8c2455f0fcdd0eeec883d00082a0afd9d33c413a4bec93de5bd69e510c",
+        "size_in_bytes": 1573136
       },
       {
         "_path": "Library/bin/wish.exe",
         "path_type": "hardlink",
-        "sha256": "beaf814e324c23a05084baf3a83da00e3b91a857dae13e32cf01cdc633c287d3",
-        "sha256_in_prefix": "beaf814e324c23a05084baf3a83da00e3b91a857dae13e32cf01cdc633c287d3",
+        "sha256": "658f1c53f6e7e0c71c0ea24560be7961fda986c76b5f2dfb0ec47836d6fdc668",
+        "sha256_in_prefix": "658f1c53f6e7e0c71c0ea24560be7961fda986c76b5f2dfb0ec47836d6fdc668",
         "size_in_bytes": 70416
       },
       {
         "_path": "Library/bin/wish86.exe",
         "path_type": "hardlink",
-        "sha256": "6b198d89e0e5a8f72e8211cdf980d235e1000c338dfa5846d970e68694fd1d78",
-        "sha256_in_prefix": "6b198d89e0e5a8f72e8211cdf980d235e1000c338dfa5846d970e68694fd1d78",
+        "sha256": "4abb06ee89715a71733a86004935972c033718a63f65753b46561b42b966ea9b",
+        "sha256_in_prefix": "4abb06ee89715a71733a86004935972c033718a63f65753b46561b42b966ea9b",
         "size_in_bytes": 70416
       },
       {
         "_path": "Library/bin/wish86t.exe",
         "path_type": "hardlink",
-        "sha256": "017cb40322c33d242771b54168c4c46d0efb88593c494434cd945c2ebf947d8d",
-        "sha256_in_prefix": "017cb40322c33d242771b54168c4c46d0efb88593c494434cd945c2ebf947d8d",
-        "size_in_bytes": 70424
+        "sha256": "5d3c21c4e44ac711b071fa8b2fab8d57b99a494fa84b6a8f6d034a0d70200380",
+        "sha256_in_prefix": "5d3c21c4e44ac711b071fa8b2fab8d57b99a494fa84b6a8f6d034a0d70200380",
+        "size_in_bytes": 70416
       },
       {
         "_path": "Library/include/X11/DECkeysym.h",
@@ -1340,9 +1340,9 @@
       {
         "_path": "Library/lib/dde1.4/tcldde14.dll",
         "path_type": "hardlink",
-        "sha256": "2f7359be248a6923c3f5b664818f28c1d713466159d1e112ae15f213daa2ad8a",
-        "sha256_in_prefix": "2f7359be248a6923c3f5b664818f28c1d713466159d1e112ae15f213daa2ad8a",
-        "size_in_bytes": 37144
+        "sha256": "7f639c9fc524ec8b003f0f1dcbd38fbfebdbce1cff6c5d0f333f6e7ad994add8",
+        "sha256_in_prefix": "7f639c9fc524ec8b003f0f1dcbd38fbfebdbce1cff6c5d0f333f6e7ad994add8",
+        "size_in_bytes": 37136
       },
       {
         "_path": "Library/lib/itcl4.2.4/itcl.tcl",
@@ -1354,8 +1354,8 @@
       {
         "_path": "Library/lib/itcl4.2.4/itcl424t.dll",
         "path_type": "hardlink",
-        "sha256": "7520dd333c47f42e740690f1b664e6bdf3582e0e4c62fc504add761de9e65a05",
-        "sha256_in_prefix": "7520dd333c47f42e740690f1b664e6bdf3582e0e4c62fc504add761de9e65a05",
+        "sha256": "89467fc1fc14d661b423ca5ac78845534ee0b3821687e2ebbb91ff82c1b785a0",
+        "sha256_in_prefix": "89467fc1fc14d661b423ca5ac78845534ee0b3821687e2ebbb91ff82c1b785a0",
         "size_in_bytes": 295696
       },
       {
@@ -1375,8 +1375,8 @@
       {
         "_path": "Library/lib/itcl4.2.4/itclstub424.lib",
         "path_type": "hardlink",
-        "sha256": "62c2274b04182d400c1db90768ce1d60917fbe7a581ca131433d95d841a056d6",
-        "sha256_in_prefix": "62c2274b04182d400c1db90768ce1d60917fbe7a581ca131433d95d841a056d6",
+        "sha256": "322e6e1eada94524560aa0e0c6e6d9ecde448e67e690d5dc490bfcaf0359adde",
+        "sha256_in_prefix": "322e6e1eada94524560aa0e0c6e6d9ecde448e67e690d5dc490bfcaf0359adde",
         "size_in_bytes": 3726
       },
       {
@@ -1438,9 +1438,9 @@
       {
         "_path": "Library/lib/reg1.3/tclreg13.dll",
         "path_type": "hardlink",
-        "sha256": "1d2694ebd703c235e470017e6f7dca77c43ca44f717454a89bd7fa6d9520fc98",
-        "sha256_in_prefix": "1d2694ebd703c235e470017e6f7dca77c43ca44f717454a89bd7fa6d9520fc98",
-        "size_in_bytes": 34072
+        "sha256": "d6df1269fb7e16328140c0462de908c8fa2159e960b90c6cdd3ae5020b13cea5",
+        "sha256_in_prefix": "d6df1269fb7e16328140c0462de908c8fa2159e960b90c6cdd3ae5020b13cea5",
+        "size_in_bytes": 34064
       },
       {
         "_path": "Library/lib/sqlite3.44.2/pkgIndex.tcl",
@@ -1459,8 +1459,8 @@
       {
         "_path": "Library/lib/sqlite3.44.2/sqlite3442t.dll",
         "path_type": "hardlink",
-        "sha256": "a4704c36d27c75b4d6117f1060fa4cca4e28581fb25488a015ff85673d3b92ba",
-        "sha256_in_prefix": "a4704c36d27c75b4d6117f1060fa4cca4e28581fb25488a015ff85673d3b92ba",
+        "sha256": "c2191abb17145d6a5afee7baac3228502d4c0ec77fb61315d85aa0a788352f8f",
+        "sha256_in_prefix": "c2191abb17145d6a5afee7baac3228502d4c0ec77fb61315d85aa0a788352f8f",
         "size_in_bytes": 1590544
       },
       {
@@ -7311,17 +7311,17 @@
       {
         "_path": "Library/lib/tcl86t.lib",
         "path_type": "hardlink",
-        "sha256": "351ddf7886d83179a7b30e36ae3ba36e2479541381824eabea44b557177ae995",
-        "sha256_in_prefix": "351ddf7886d83179a7b30e36ae3ba36e2479541381824eabea44b557177ae995",
+        "sha256": "55342a45ba3f035a563d2af18891ba5cf68f900da5a01f67762a738dbaa4bcf3",
+        "sha256_in_prefix": "55342a45ba3f035a563d2af18891ba5cf68f900da5a01f67762a738dbaa4bcf3",
         "size_in_bytes": 186746
       },
       {
         "_path": "Library/lib/tclConfig.sh",
         "file_mode": "text",
         "path_type": "hardlink",
-        "prefix_placeholder": "C:\\b\\abs_17sr80_iza\\croot\\tk_1714770602079\\_h_env",
-        "sha256": "495d5d2b6618e255f92eaaeae67f603f687f98f8705ad4cba67d04fed64e370d",
-        "sha256_in_prefix": "0357343cf3871dd06ba5892f7910e890b749342a4cef8db516c5db62da62d754",
+        "prefix_placeholder": "C:\\b\\abs_7cplcn7ppb\\croot\\tk_1748849403747\\_h_env",
+        "sha256": "41cddd163e4dabca4a04f7f51686458c51d87cc6301efa66d756e5d8f85db9d9",
+        "sha256_in_prefix": "baca14e4ca899748e9ea306e9f8923db3b81d23ab230c17db6c90ef571bfaa41",
         "size_in_bytes": 8163
       },
       {
@@ -7334,8 +7334,8 @@
       {
         "_path": "Library/lib/tclstub86.lib",
         "path_type": "hardlink",
-        "sha256": "5affc1032b00b9d1aceb0f265c898f7cc1adecfc67d8a25629edd676ffdd08bf",
-        "sha256_in_prefix": "5affc1032b00b9d1aceb0f265c898f7cc1adecfc67d8a25629edd676ffdd08bf",
+        "sha256": "3149eb814a1309d1717b83c03cc3c3750c4b4cfe56b6f5801fc556e72a846563",
+        "sha256_in_prefix": "3149eb814a1309d1717b83c03cc3c3750c4b4cfe56b6f5801fc556e72a846563",
         "size_in_bytes": 9598
       },
       {
@@ -8559,25 +8559,25 @@
       {
         "_path": "Library/lib/tk86t.lib",
         "path_type": "hardlink",
-        "sha256": "24e37da8994e8dda8aaac03be00582930671f48dc96bd5cf36b8e341103dc0a5",
-        "sha256_in_prefix": "24e37da8994e8dda8aaac03be00582930671f48dc96bd5cf36b8e341103dc0a5",
+        "sha256": "968f056e0722b48b9bbbb708b5fa89514bf71139ea5b0adafa1cc69158cd4f64",
+        "sha256_in_prefix": "968f056e0722b48b9bbbb708b5fa89514bf71139ea5b0adafa1cc69158cd4f64",
         "size_in_bytes": 125276
       },
       {
         "_path": "Library/lib/tkstub86.lib",
         "path_type": "hardlink",
-        "sha256": "82fa0561fc316c51c64704371c4027586129366403e1413120ec96a0707a239f",
-        "sha256_in_prefix": "82fa0561fc316c51c64704371c4027586129366403e1413120ec96a0707a239f",
+        "sha256": "ea5aee6e13f5567a9bb8a77bb5ad553ff3e81d7cbc385b3cbaf075c687c3af33",
+        "sha256_in_prefix": "ea5aee6e13f5567a9bb8a77bb5ad553ff3e81d7cbc385b3cbaf075c687c3af33",
         "size_in_bytes": 7942
       }
     ],
     "paths_version": 1
   },
   "requested_spec": "None",
-  "sha256": "80136bf123ac4e5277b4ccbe8bd3d9a6535842ad269741bc2e019babcd71b5d6",
-  "size": 3660041,
+  "sha256": "78bd408b1ac04f852204a027334c495a01ff03b0a7c5d6a2f3804c6a8dbb9c12",
+  "size": 3677635,
   "subdir": "win-64",
-  "timestamp": 1714770894000,
-  "url": "https://repo.anaconda.com/pkgs/main/win-64/tk-8.6.14-h0416ee5_0.conda",
+  "timestamp": 1748849710000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/tk-8.6.14-h5e9d12e_1.conda",
   "version": "8.6.14"
 }

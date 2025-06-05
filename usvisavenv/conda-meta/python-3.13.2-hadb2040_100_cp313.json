@@ -4,22 +4,22 @@
   "channel": "https://repo.anaconda.com/pkgs/main/win-64",
   "constrains": [],
   "depends": [
-    "bzip2 >=1.0.8,<2.0a0",
-    "expat >=2.6.4,<3.0a0",
-    "libffi >=3.4,<4.0a0",
-    "libmpdec >=4.0.0,<5.0a0",
-    "openssl >=3.0.15,<4.0a0",
-    "python_abi * *_cp313",
-    "sqlite >=3.45.3,<4.0a0",
-    "tk >=8.6.14,<8.7.0a0",
+    "pip",
     "tzdata",
     "vc >=14.2,<15.0a0",
     "vs2015_runtime >=14.29.30133,<15.0a0",
-    "xz >=5.4.6,<6.0a0",
     "zlib >=1.2.13,<1.3.0a0",
-    "pip"
+    "bzip2 >=1.0.8,<2.0a0",
+    "libffi >=3.4,<4.0a0",
+    "openssl >=3.0.15,<4.0a0",
+    "xz >=5.4.6,<6.0a0",
+    "sqlite >=3.45.3,<4.0a0",
+    "tk >=8.6.14,<8.7.0a0",
+    "expat >=2.6.4,<3.0a0",
+    "libmpdec >=4.0.0,<5.0a0",
+    "python_abi * *_cp313"
   ],
-  "extracted_package_dir": "C:\\Users\\prash\\anaconda3\\pkgs\\python-3.13.2-hadb2040_100_cp313",
+  "extracted_package_dir": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python-3.13.2-hadb2040_100_cp313",
   "files": [
     "DLLs/_asyncio.pyd",
     "DLLs/_bz2.pyd",
@@ -1860,12 +1860,12 @@
   "fn": "python-3.13.2-hadb2040_100_cp313.conda",
   "license": "PSF-2.0",
   "link": {
-    "source": "C:\\Users\\prash\\anaconda3\\pkgs\\python-3.13.2-hadb2040_100_cp313",
+    "source": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python-3.13.2-hadb2040_100_cp313",
     "type": 1
   },
   "md5": "7b215af5df4b52758f4941e25d110542",
   "name": "python",
-  "package_tarball_full_path": "C:\\Users\\prash\\anaconda3\\pkgs\\python-3.13.2-hadb2040_100_cp313.conda",
+  "package_tarball_full_path": "C:\\Users\\Prashant kumar singh\\anaconda3\\pkgs\\python-3.13.2-hadb2040_100_cp313.conda",
   "paths_data": {
     "paths": [
       {

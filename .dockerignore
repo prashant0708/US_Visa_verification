@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 logs/
-artifacts/
+artifact/
 *.log
 .git/
+notebook/
